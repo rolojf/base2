@@ -1,0 +1,9 @@
+[submodule "mainroad"]
+	path = themes/mainroad
+	url = https://github.com/Vimux/Mainroad.git
+[submodule "hugo-pipes"]
+	path = themes/hugo-pipes
+	url = https://github.com/budparr/hugo-pipes-parcel.git
+[submodule "themes/rolojf-base"]
+	path = themes/rolojf-base
+	url = https://github.com/rolojf/base.git
