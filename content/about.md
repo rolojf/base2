@@ -20,7 +20,10 @@ Learn more and contribute on [GitHub](https://github.com/spf13).
 
 ## Setup
 
+<div class="text-5xl text-teal-600 italic">
 Some fun facts about [Hugo](http://gohugo.io/):
+</div>
+
 
 * Built in [Go](http://golang.org/)
 * Loosely inspired by [Jekyll](http://jekyllrb.com/)

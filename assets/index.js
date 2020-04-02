@@ -1,5 +1,4 @@
-// To use https://github.com/KyleAMathews/typefaces
+//import "typeface-inter";
 import "./css/styles.css";
-import "typeface-inter"
-
+import "./css/mainroad.css";
 import "./js/nojs.js"

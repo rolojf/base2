@@ -3,9 +3,7 @@
 @tailwind components;
 @tailwind utilities;  */
 /* Base - Variables: tailwind-config.js */
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "./mainroad.css";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
