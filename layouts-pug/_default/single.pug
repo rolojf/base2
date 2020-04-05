@@ -1,0 +1,21 @@
+| {{ define "cuerpo" }}
+div
+   .pb-24#difumina
+      | {{ partial "nav1.html" . }}
+      header.pb-8
+         .max-w-7xl.mx-auto.px-4(class='sm:px-6 lg:px-8')
+            h1.text-3xl.leading-9.font-bold.text-white
+               | {{ with .Params.subtitle }}
+               span.subtitle.
+                  {{.}}
+                  {{ end }}
+   .flex.flex-col
+      main.-mt-32.z-20(role='main')
+         .max-w-7xl.mx-auto.pb-12.px-4(class='sm:px-6 lg:px-8')
+            .bg-white.rounded-lg.shadow.px-5(class='sm:px-6').
+               {{ .Content }}
+      aside.
+         {{ partial "sidebar.html" . }}
+      footer.z-0.
+         {{ partial "pie.html" . }}
+| {{ end }}

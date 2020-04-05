@@ -1,0 +1,38 @@
+doctype html
+html.no-js(lang="es")
+   head
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      title.
+         {{ block "title" . }} {{ if not .IsHome }} {{ .Title }} - {{ end }} {{ .Site.Title }} {{ end }}
+      //- Los internal templates
+      .
+         {{ partial "metas.html" . }}
+         {{ if .Site.Params.opengraph }} {{ template "_internal/opengraph.html" . }} {{ end }}
+         {{ if .Site.Params.twitter_cards }} {{ template "_internal/twitter_cards.html" . }} {{ end }}
+         {{- if not .Site.IsServer }}
+         {{ if .Site.Params.g_analytics }} {{ template "_internal/google_analytics_async.html" . }} {{ end }}
+         {{- end }}
+         {{ partial "stylesheets.html" . }}
+      //- {{ with .OutputFormats.Get "rss" -}}
+      //-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+      //- {{ end -}}
+      link(rel="shortcut icon" href!='{{ "favicon.ico" | relURL }}')
+      //- link(rel="author" href="humans.txt")
+      //- link( rel="license" href="copyright.html")
+      //- link(rel="archives" href="https://example.com/archives/")
+      //- link(rel="index" href="https://example.com/article/")
+      //- link(rel="icon" sizes="192x192" href="/path/to/icon.png")
+      //- Apple Touch Icon (reuse 192px icon.png)
+      //- link(rel="apple-touch-icon" href="/path/to/apple-touch-icon.png")
+   body
+      | {{ block "cuerpo" . }}
+      | {{ end }}
+      | {{ partial "scripts.html" . }}
+
+
+
+
+
+
+

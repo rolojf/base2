@@ -3,84 +3,17 @@
 }
 
 html { font-family: 'Inter', sans-serif; }
+
 @supports (font-variation-settings: normal) {
     html { font-family: 'Inter var', sans-serif; }
   }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
-article,
-aside,
-dialog,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-	display: block;
-}
-
-:focus::-webkit-input-placeholder {
-	color: transparent;
-}
-
-:focus::-moz-placeholder {
-	color: transparent;
-}
-
-:focus:-moz-placeholder {
-	color: transparent;
-}
-
-:focus:-ms-input-placeholder {
-	color: transparent;
-}
-
-/* Structure */
-html {
-	font-size: 100%;
-	-ms-text-size-adjust: none;
-	-webkit-text-size-adjust: none;
-}
-
-body {
-	margin: 0;
-	font-size: 14px;
-	font-size: .875rem;
-	line-height: 1.6;
-	word-wrap: break-word;
-	background: #f7f7f7;
-	-webkit-font-smoothing: antialiased;
-}
-
-.container {
-	position: relative;
-	width: 100%;
-	max-width: 1080px;
-	margin: 0 auto;
-}
 
 .container--outer {
 	margin: 25px auto;
 	box-shadow: 0 0 10px rgba(50, 50, 50, .17);
 }
 
-.wrapper {
-	padding: 25px;
-	background: #fff;
-}
-
-.flex {
-	display: -webkit-flex;
-	display: flex;
-}
 
 .primary {
 	-webkit-flex: 1 0 65.83%;
@@ -105,31 +38,6 @@ body {
 	margin: 0 2.5% 0 0;
 }
 
-.clearfix {
-	display: block;
-}
-
-.clearfix::after {
-	display: block;
-	height: 0;
-	padding: 0;
-	margin: 0;
-	clear: both;
-	line-height: 0;
-	visibility: hidden;
-	content: "";
-}
-
-input,
-button,
-select,
-optgroup,
-textarea {
-	margin: 0;
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
-}
 
 /* Button */
 .btn {
