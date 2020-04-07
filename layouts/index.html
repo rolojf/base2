@@ -5,7 +5,11 @@
          <header class="pb-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <h1 class="text-3xl leading-9 font-bold text-white">
-                  {{ with .Params.subtitle }}<span class="subtitle">{{.}} {{ end }}</span>
+                  {{ with .Params.subtitle }}
+                     <span class="subtitle">
+                        {{.}}
+                     </span>
+                  {{ end }}
                </h1>
             </div>
          </header>
@@ -14,22 +18,38 @@
          <main class="-mt-32 z-20" role="main">
             <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
                <div class="bg-white rounded-lg shadow px-5 sm:px-6">
-                  {{ .Content }} {{ range first 4 .Pages }}
-                  <article>
-                     <div>
-                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                        <p>{{ .Summary }}</p>
-                     </div>
-                     {{ if .Truncated }}
-                        <div><a href="{{ .RelPermalink }}">Leer más</a></div>
-                     {{ end }}
-                  </article>
-                  {{ end }} {{ partial "pagination.html" . }}
-                  <aside>{{ partial "sidebar.html" . }}</aside>
+                  {{ .Content }}
+                  {{ range first 4 .Pages }}
+                     <article>
+                        <div>
+                           <h2>
+                              <a href="{{ .RelPermalink }}">
+                                 {{ .Title }}
+                              </a>
+                           </h2>
+                           <p>
+                              {{ .Summary }}
+                           </p>
+                        </div>
+                        {{ if .Truncated }}
+                           <div>
+                              <a href="{{ .RelPermalink }}">
+                                 Leer más
+                              </a>
+                           </div>
+                        {{ end }}
+                     </article>
+                  {{ end }}
+                  {{ partial "pagination.html" . }}
+                  <aside>
+                     {{ partial "sidebar.html" . }}
+                  </aside>
                </div>
             </div>
          </main>
-         <footer class="z-0">{{ partial "pie.html" . }}</footer>
+         <footer class="z-0">
+            {{ partial "pie.html" . }}
+         </footer>
       </div>
    </div>
 {{ end }}
