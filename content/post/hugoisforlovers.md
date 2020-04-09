@@ -12,6 +12,11 @@ categories:
 menu: main
 ---
 
+
+Y este es el resumen de hugo is for lovers, como el go for lover pero hugo 4 them.
+
+<!--more-->
+
 ## Step 1. Install Hugo
 
 Go to [Hugo releases](https://github.com/spf13/hugo/releases) and download the

@@ -18,10 +18,9 @@
          <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-lg shadow px-5 sm:px-6">
                {{ .Content }}
-               {{ if .Params.mainSections  }}
-                  {{ $paginas := where site.RegularPages "Type" "in" .Params.mainSections }}
-                  {{ partial "lista-resumen.html" $paginas }}
-               {{ end }}
+               {{ $paginas := .Pages }}
+               {{ partial "lista-resumen.html" $paginas }}
+               {{ template "_internal/pagination.html" . }}
                <aside>
                   {{ partial "sidebar.html" . }}
                </aside>

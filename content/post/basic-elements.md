@@ -10,7 +10,7 @@ tags:
   - "Basic Elements"
 ---
 
-The main purpose of this article is to make sure that all basic HTML Elements are decorated with CSS so as to not miss any possible elements when creating new themes for Hugo.
+Este es de resumen de elementos básicos The main purpose of this article is to make sure that all basic HTML Elements are decorated with CSS so as to not miss any possible elements when creating new themes for Hugo.
 <!--more-->
 
 ## Headings
