@@ -6,6 +6,9 @@ paginatePath = ""
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"]
 
+[build]
+  writeStats = true
+
 [Author]
   name = "Rolando Flores"
   bio = "Aquí se supone pongo mi bio"
