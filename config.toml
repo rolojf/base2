@@ -14,7 +14,7 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"
 [Params]
   subtitle = "En Cabeza Ajena" # Subtitle of your site
   description = "Salvo que quieras encontrar atajo" # Descrip del sitio a como sale en google
-  copyright = "John Doe" # Footer copyright holder, otherwise will use site title
+  copyright = "Derechos reservados" # Footer copyright holder, otherwise will use site title
   opengraph = false
   g_analytics = false
   readmore = true # Show "Read more" button in list if true
@@ -26,6 +26,16 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"
   mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "2006-01-02" # Change the format of dates
 
+[Params.social]
+# Enable parts of social widget
+twitter = "a1rolo"
+instagram = ""
+linkedin = "username"
+facebook = ""
+github = "rolojf"
+mail = "rolo@psolar.mx"
+whatsapp = "5218145930809?text=Mensaje%20desde%20pag.%20de%20internet%20"
+
 [Params.sidebar]
   widgets = ["recent", "categories", "taglist"]
 
@@ -33,13 +43,6 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
 
-[Params.widgets.social]
-  # Enable parts of social widget
-  twitter = "a1rolo"
-  instagram = "username"
-  linkedin = "username"
-  github = "rolojf"
-  email = "rolo@psolar.mx"
 
 # Custom social links
 [[Params.widgets.social.custom]]
