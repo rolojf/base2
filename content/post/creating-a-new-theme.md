@@ -2,6 +2,7 @@
 title: Creating a New Theme
 date: 2014-09-28
 author: Michael Henderson
+menu: secundario
 ---
 
 Este es el resumen de creando un nuevo tema, donde This tutorial will show you how to create a simple

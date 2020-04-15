@@ -10,10 +10,10 @@
             <div class="hidden md:block">
                <div class="ml-10 flex items-baseline">
 		            {{- $currentPage := . }}
-		            {{- range .Site.Menus.main }}
+		            {{- range .Site.Menus.secundario }}
 		               {{- if .Name }}
                         <a class="menu__link
-                                  {{- if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) -}}
+                                  {{- if or ($currentPage.IsMenuCurrent "secundario" .) ($currentPage.HasMenuCurrent "secundario" .) -}}
                                   {{- $activa -}}
                                   {{ else }}
                                   {{- $pasiva -}} ml-4

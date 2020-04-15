@@ -5,6 +5,7 @@ lastmod = 2020-04-11T20:26:42-05:00
 tags = ["howTo"]
 categories = ["tech"]
 draft = false
+menu = "secundario"
 +++
 
 ## Grabciones audio calidad edición {#grabciones-audio-calidad-edición}

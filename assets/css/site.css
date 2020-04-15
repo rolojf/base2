@@ -1,9 +1,6 @@
 :root:lang(en),       :not(:lang(en)) > :lang(en)             { quotes: '\201c' '\201d' '\2018' '\2019' } /* “ ” ‘ ’ */
 :root:lang(es),       :not(:lang(es)) > :lang(es)             { quotes: '\00ab' '\00bb' '\201c' '\201d' } /* « » “ ” */
 
-/* Use border-box by default, globally del Remedy */
-*, ::before, ::after { box-sizing: border-box; }
-
 @media print {
     * {color: black !important; background: transparent !important;}
     .salta-pag {
@@ -13,16 +10,6 @@
 
 p:empty {
 	 display: none;
-}
-
-#difumina {
-  background-image: linear-gradient(rgba(45,55,72,1), rgba(45,55,72,0));
-}
-#difuminab {
-  background-image: linear-gradient(rgba(45,55,72,0), rgba(45,55,72,.92));
-}
-#difuminac {
-  background-image: linear-gradient(rgba(45,55,72,0.92), rgba(45,55,72,1));
 }
 
 .mio {

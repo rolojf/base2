@@ -23,14 +23,24 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"
   readmore = true # Show "Read more" button in list if true
   authorbox = true
   twitter_cards = true # Enable Twitter Cards if true
-  toc = true # Enable Table of Contents
+  toc = false # Enable Table of Contents
   post_navigation = true # Show post navigation at bottom of pages if true
   post_meta = ["date", "categories", "translations"] # Order of post meta information
-  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  mainSections = ["post"] # , "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "2006-01-02" # Change the format of dates
+#  sectionPagesMenu = "main"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "post"
+    title = "notas"
+    name = "Notas en General"
+    url = "/post/"
+    weight = -110
 
 [Params.social]
-# Enable parts of social widget
+# Enable parts of social widgetpost/
 twitter = "a1rolo"
 instagram = ""
 linkedin = "username"
@@ -46,6 +56,9 @@ whatsapp = "5218145930809?text=Mensaje%20desde%20pag.%20de%20internet%20"
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
 
+[Params.navega]
+  activa = " text-white bg-gray-900"
+  pasiva = " text-gray-300 " # agrega un espacio al final
 
 # Custom social links
 [[Params.widgets.social.custom]]
