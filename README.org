@@ -1,0 +1,6 @@
+* El contenido
+En especial se debe poner en el front matter:
+- el menú ya sea main ó secundario
+
+* Este repositorio es para desarrollo y prueba de theme
+Sin embargo el tema en sí, es un submódulo pararte 
