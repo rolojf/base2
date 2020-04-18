@@ -1,0 +1,16 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Rolo Base"
+license = "MIT"
+licenselink = "https://github.com/rolojf/rolo-base/blob/master/LICENSE"
+description = "Theme para mis proyectos"
+homepage = "http://rolo.tips/"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "Rolando Flores"
+  homepage = ""
+

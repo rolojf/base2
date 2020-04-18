@@ -1,0 +1,17 @@
+{{ range first 4 . }}
+   <article class="mt-8">
+      <h2>
+         <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+         </a>
+      </h2>
+      <p>
+         {{ .Summary }}
+      </p>
+      {{ if .Truncated }}
+         <a href="{{ .RelPermalink }}">
+            Leer más
+         </a>
+      {{ end }}
+   </article>
+{{ end }}
