@@ -26,9 +26,8 @@ Thumbs.db
 
 # Folders to ignore
 node_modules
-# public - for demo, lets' upload the public folder
-public
 # elm related
 elm-stuff
 # lo procesado
 assets/output
+public
