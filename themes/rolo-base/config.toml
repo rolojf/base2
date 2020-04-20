@@ -1,5 +1,6 @@
 baseurl = "https://rolo.tips/"
 title = "Mi página matona"
+theme = "rolo-base"
 languageCode = "es"
 paginate = "5" # Number of posts per page
 paginatePath = ""

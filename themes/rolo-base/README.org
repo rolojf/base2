@@ -1,17 +1,6 @@
-* ¿Qué es?
-Es el thema básico para mis páginas usando Hugo Static Site Generator.
+* El contenido
+En especial se debe poner en el front matter:
+- el menú ya sea main ó secundario
 
-* ¿Cómo instalarlo?
-1. Git clone este repositorio dentro del subdirectorio themes
-2. Copiar los archivos que están en el directorio raíz del theme al directorio raíz del proyecto
-3. Modificar el config.toml dentro del directorio raíz del proyecto (según corresponda).
-4. Copiar el subdirectorio assets al directorio raíz del proyecto.
-5. Ejecutar yarn en el directorio raiz para bajar todas las dependencias para procesar los assets
-
-* Uso
-con los comandos $yarn run ...
-1. clean para borrar
-2. fonts para procesar la tipografías
-3. start para iniciar en modo desarrollo ó
-4. build para generar el contenido para crear el public
-
+* Este repositorio es para desarrollo y prueba del theme
+Sin embargo el tema en sí, es un subtree apararte 
