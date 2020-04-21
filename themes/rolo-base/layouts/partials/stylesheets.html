@@ -1,9 +1,9 @@
 {{ $fuente := resources.Get "./output/fonts.css" }}
-{{ $estilo := resources.Get "./output/index.css" }}
+{{ $estilo := resources.Get "./output/index.css" | resources.PostCSS (dict "config" "postcss.config.js" "noMap" true)}}
 {{ if hugo.IsProduction }}
    {{ $sFuente := $fuente | resources.Fingerprint }}
    <link rel="stylesheet" type="text/css" href="{{ $sFuente.RelPermalink }}" integrity="{{ $sFuente.Data.Integrity }}">
-   {{ $sEstilo := $estilo | resources.Fingerprint }} {{/* | resources.PostProcess (dict "config" "hugo.postcss.config.js") */}}
+   {{ $sEstilo := $estilo | resources.Fingerprint | resources.PostProcess  }}
    <link rel="stylesheet" type="text/css" href="{{ $sEstilo.RelPermalink }}" integrity="{{ $sEstilo.Data.Integrity }}">
 {{ else }}
    <link rel="stylesheet" type="text/css" href="{{ $estilo.RelPermalink }}">
