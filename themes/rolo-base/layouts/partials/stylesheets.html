@@ -1,15 +1,10 @@
 {{ $fuente := resources.Get "./output/fonts.css" }}
 {{ $estilo := resources.Get "./output/index.css" | resources.PostCSS (dict "config" "postcss.config.js" "noMap" true)}}
+{{ $miCSS := slice $fuente $estilo | resources.Concat "./output/miEstilo.css" }}
 {{ if hugo.IsProduction }}
-   {{ $sFuente := $fuente | resources.Fingerprint }}
-   <link rel="stylesheet" type="text/css" href="{{ $sFuente.RelPermalink }}" integrity="{{ $sFuente.Data.Integrity }}">
-   {{ $sEstilo := $estilo | resources.Fingerprint | resources.PostProcess  }}
-   <link rel="stylesheet" type="text/css" href="{{ $sEstilo.RelPermalink }}" integrity="{{ $sEstilo.Data.Integrity }}">
+   {{ $miCSS =  $miCSS | resources.Fingerprint | resources.PostProcess }}
+   <link rel="stylesheet" type="text/css" href="{{ $miCSS.RelPermalink }}" integrity="{{ $miCSS.Data.Integrity }}">
 {{ else }}
-   <link rel="stylesheet" type="text/css" href="{{ $estilo.RelPermalink }}">
-   <link rel="stylesheet" type="text/css" href="{{ $fuente.RelPermalink }}">
-{{ end }}
-
 {{/* And, Parcel generates the files to the output directory. Create Prefetch links, and using Pipes, also puts them in our public folder */}}
 {{ $path := "./assets/output" }}
 {{ $files := readDir $path }}
@@ -21,3 +16,5 @@
    {{ end }}
 {{ end }}
 
+   <link rel="stylesheet" type="text/css" href="{{ $miCSS.RelPermalink }}">
+{{ end }}
