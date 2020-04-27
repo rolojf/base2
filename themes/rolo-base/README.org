@@ -10,3 +10,5 @@ Sin embargo el tema en sí, es un subtree apararte
 3. Se modifica el package.json para que junto con index también nombre.js se compile a elm en parcel
 4. Se crea nombre.js en assets importando la aplicación elm (véase demo.js)
 5. La aplicacíon de Elm va en assets/src/nombre/Main.elm
+6. Para usar tailwind.el se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
+

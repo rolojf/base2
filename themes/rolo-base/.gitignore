@@ -38,3 +38,4 @@ assets/output
 /hugo_stats.json
 **/_def/
 resources/_gen/
+resources/_gen/*
