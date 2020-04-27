@@ -36,3 +36,5 @@ assets/output
 # is a theme, luego  
 /assets/TAGS
 /hugo_stats.json
+**/_def/
+resources/_gen/
