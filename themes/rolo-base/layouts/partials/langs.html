@@ -1,0 +1,8 @@
+{{ if .IsTranslated }}
+   {{ range .Translations }}
+      <a class="text-yellow-200 text-xs"
+         href="{{ .RelPermalink }}"
+         >{{ i18n "traducido" }}
+      </a>
+   {{ end }}
+{{ end }}
