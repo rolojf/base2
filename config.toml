@@ -1,11 +1,28 @@
 baseurl = "https://rolo.tips/"
 title = "Mi página matona"
 theme = "rolo-base"
-languageCode = "es"
+
 paginate = "5" # Number of posts per page
 paginatePath = ""
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap", "robotsTXT", "404"]
+
+languageCode = "es"
+DefaultContentLanguage = "es"
+
+[languages]
+  [languages.en]
+    title = "My killer page"
+    weight = 2
+    contentDir = "content/en"
+#    [languages.en.params]
+#      linkedin = "https://linkedin.com/fr/whoever"
+#      [languages.fr.params.navigation]
+#        help = "Help"
+  [languages.es]
+    title = "Mi página matona"
+    weight = 1
+    contentDir = "content"
 
 [build]
   writeStats = true

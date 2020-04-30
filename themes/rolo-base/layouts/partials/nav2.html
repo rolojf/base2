@@ -8,7 +8,7 @@
                <img class="h-8 w-8" src="/img/logos/workflow-mark-on-dark.svg" alt="" />
             </div>
             <div class="hidden md:block">
-               <div class="ml-10 flex items-baseline">
+               <div class="ml-10 flex items-baseline text-xs">
 		            {{- $currentPage := . }}
 		            {{- range .Site.Menus.secundario }}
 		               {{- if .Name }}
@@ -24,6 +24,7 @@
                         </a>
                      {{ end }}
                   {{ end }}
+                  {{ partial "langs.html" . }}
                </div>
             </div>
          </div>

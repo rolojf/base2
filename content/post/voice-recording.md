@@ -1,14 +1,10 @@
 +++
 title = "Grabaciones audio calidad edición"
 author = ["Rolando Flores G"]
-lastmod = 2020-04-30T13:06:07-05:00
+lastmod = 2020-04-30T18:05:27-05:00
 tags = ["howTo"]
 categories = ["tech"]
 draft = false
-translationKey = "grabaVoz"
-[menu.secundario]
-  weight = 1001
-  identifier = "grabaciones-audio-calidad-edición"
 +++
 
 Para ralizar una grabación con la mejor calidad en términos prácticos, usando la heramienta disponbile a la mano.

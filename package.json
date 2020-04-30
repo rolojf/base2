@@ -36,5 +36,7 @@
     "tailwindcss": "*",
     "typeface-inter": "^3.12.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@sanity/client": "^1.149.7"
+  }
 }

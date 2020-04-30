@@ -12,3 +12,37 @@ Sin embargo el tema en sí, es un subtree apararte
 5. La aplicacíon de Elm va en assets/src/nombre/Main.elm
 6. Para usar tailwind.el se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
 
+* Redactar en bilingue
+En el menu aparece la opción de traducido si la hay.
+En general se establece
+
+#+begin_src org
+#+HUGO_BASE_DIR: ~/Private/elemento/websites/base2/
+#+end_src
+
+Y se documenta en sub encabezados los dos archivos poniendo para el de español
+#+begin_src org
+:PROPERTIES: 
+:EXPORT_FILE_NAME: voice-recording
+:EXPORT_HUGO_SECTION: /post/
+:END:
+#+end_src
+
+Asegurando que tiene el mismo nombre
+#+begin_src org
+:PROPERTIES: 
+:EXPORT_FILE_NAME: voice-recording
+:EXPORT_HUGO_SECTION: en/post/
+:END:
+#+end_src
+
+En caso de querer poner nombre diferente
+#+begin_src org
+:PROPERTIES: 
+:EXPORT_FILE_NAME: grabacion-de-voz
+:EXPORT_HUGO_SECTION: post
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :translationKey voice 
+:END:
+#+end_src
+
+Igual se pone el translationKey en inglés así se identifica que son uno pa'l otro.

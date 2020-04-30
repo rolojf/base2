@@ -1,4 +1,7 @@
 # General
+- id: traducido
+  translation: "Leer en español"
+
 - id: read_more
   translation: "Read more…"
 

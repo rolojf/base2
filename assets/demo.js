@@ -1,4 +1,4 @@
-import { Elm } from "./src/demo/Main.elm";
+import { Elm } from "./src/Demo.elm";
 
 // Elm Application
 
