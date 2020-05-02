@@ -46,3 +46,27 @@ En caso de querer poner nombre diferente
 #+end_src
 
 Igual se pone el translationKey en inglés así se identifica que son uno pa'l otro.
+
+* Los menus
+Están predefinidos dos tipos de menu.
+El primario (llamado main) que es para la página principal y el secundario para las otras.
+
+** Para inlcuir una página en un menú
+Las páginas que queremos incluir en el menú, lo ponemos en el frontmatter así:
+#+begin_src org
+:PROPERTIES:
+:EXPORT_HUGO_MENU: :menu main
+:END:
+#+end_src
+
+** Predefinir páginas generales
+Adicionalmente se puede poner datos extras programando en config.toml así:
+#+begin_src toml
+[menu]
+  [[languajes.es.menu.main]]
+    identifier = "post"
+    title = "notas"
+    name = "Notas en General"
+    url = "/post/"
+    weight = -110
+#+end_src

@@ -1,6 +1,6 @@
 {{ if .IsTranslated }}
    {{ range (first 1 .Translations) }}
-      <a class="text-yellow-200 text-xs"
+      <a class="text-yellow-200 menu__link block ml-4"
          href="{{ .RelPermalink }}"
       >
          {{ i18n "traducido" }}

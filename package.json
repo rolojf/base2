@@ -12,11 +12,11 @@
     "build": "run-s deploy:assets build:hugo",
     "start": "run-s build:assets dev",
     "dev": "run-p dev:parcel dev:hugo",
-    "dev:hugo": "NODE_ENV=development hugo server --gc --disableFastRender --navigateToChanged",
+    "dev:hugo": "NODE_ENV=development hugo server --disableFastRender --navigateToChanged",
     "dev:parcel": "NODE_ENV=development parcel watch ./assets/index.js watch ./assets/demo.js --out-dir assets/output",
     "build:assets": "NODE_ENV=development parcel build ./assets/index.js ./assets/demo.js --out-dir assets/output --no-cache",
-    "deploy:assets": "NODE_ENV=production parcel build ./assets/index.js ./assets/demo.js--out-dir assets/output --experimental-scope-hoisting --no-cache",
-    "build:hugo": "NODE_ENV=production hugo --gc --minify"
+    "deploy:assets": "NODE_ENV=production parcel build ./assets/index.js ./assets/demo.js --out-dir assets/output --experimental-scope-hoisting --no-cache",
+    "build:hugo": "NODE_ENV=production hugo -e production --gc --minify"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",
@@ -37,6 +37,7 @@
     "typeface-inter": "^3.12.0"
   },
   "dependencies": {
-    "@sanity/client": "^1.149.7"
+    "@sanity/client": "^1.149.7",
+    "cssnano": "^4.1.10"
   }
 }

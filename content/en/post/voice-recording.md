@@ -1,10 +1,13 @@
 +++
 title = "Audio recordings workflow for quality"
 author = ["Rolando Flores G"]
-lastmod = 2020-04-30T18:05:28-05:00
+lastmod = 2020-05-01T17:39:38-05:00
 tags = ["howTo"]
 categories = ["tech"]
 draft = false
+[menu.main]
+  weight = 1002
+  identifier = "audio-recordings-workflow-for-quality"
 +++
 
 To make a good quality audio recording, in practical terms and using tools at hand.
