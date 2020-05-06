@@ -95,3 +95,17 @@
     "<b>Tip:</b> You can show as many sections as you like with \
     <b><a href=\"https://gohugo.io/functions/where/#mainsections\" rel=\"nofollow noopener\" target=\"_blank\">mainSections</a></b> \
     config parameter."
+
+- id: titulo_lista_resumen
+  translation: "Posts"
+
+- id: cta_subtitulo_lista_resumen
+  translation: "Get notifications in your inbox when something's new."
+
+- id: cta_lista_resumen
+  translation: "Notify me"
+
+- id: cta_email
+  translation: "Enter your email"
+
+

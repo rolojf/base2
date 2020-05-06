@@ -1,6 +1,6 @@
 # General
 - id: traducido
-  translation: "Read it in english"
+  translation: "Read  it in english"
 
 - id: read_more
   translation: "Leer más"
@@ -92,3 +92,15 @@
   translation:
     "<b>Aviso:</b> Puedes mostrar tantas secciones como gustes con el parámetro de configuración \
     <b><a href=\"https://gohugo.io/functions/where/#mainsections\" rel=\"nofollow noopener\" target=\"_blank\">mainSections</a></b>."
+
+- id: titulo_lista_resumen
+  translation: "Artículos"
+
+- id: cta_subtitulo_lista_resumen
+  translation: "Registre correo electrónico y reciba aviso de nuevas publicaciones."
+
+- id: cta_lista_resumen
+  translation: "Enviar aviso"
+
+- id: cta_email
+  translation: "Escriba su correo electrónico"

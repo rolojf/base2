@@ -12,9 +12,7 @@
                   <div>
                      {{ .Content }}
                      {{ $secciones := default .Site.Params.mainSections .Params.mainSections }}
-                        {{ printf "%#v" $secciones }}
                         {{ $paginas := where site.RegularPages "Type" "in" $secciones }}
-                        {{ printf "%#v" $paginas }}
                         {{ partial "lista-resumen.html" $paginas }}
                      {{/* end */}}
                   </div>
