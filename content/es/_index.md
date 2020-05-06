@@ -4,6 +4,7 @@ author = ["Rolando Flores G"]
 tags = ["unoTag"]
 categories = ["unoCat"]
 draft = false
+mainSections = ["post"] # , "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
 +++
 
 ## Este sería el primer headline {#este-sería-el-primer-headline}

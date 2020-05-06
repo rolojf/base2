@@ -47,6 +47,12 @@ En caso de querer poner nombre diferente
 
 Igual se pone el translationKey en inglés así se identifica que son uno pa'l otro.
 
+* El sidebar
+Toma del custom filed del frontmatter o del site
+una lista de widgets que desplegar en la página
+Widgets revisados:
+- Recent
+
 * Los menus
 Están predefinidos dos tipos de menu.
 El primario (llamado main) que es para la página principal y el secundario para las otras.
