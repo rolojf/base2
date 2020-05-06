@@ -1,7 +1,13 @@
 {{- $root := . }}
-{{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
-	{{- range $widget := . }}
-		{{- $p := printf "widgets/%s.html" $widget }}
-		{{- partial $p $root }}
-	{{- end }}
-{{- end }}
+<aside class="md:float-right">
+   <div class="bg-gray-50 overflow-hidden sm:rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+         {{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
+	         {{- range $widget := . }}
+		         {{- $p := printf "widgets/%s.html" $widget }}
+		         {{- partial $p $root }}
+	         {{- end }}
+         {{- end }}
+      </div>
+   </div>
+</aside>

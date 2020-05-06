@@ -54,7 +54,7 @@
 
 # Recent Posts widget
 - id: recent_title
-  translation: "Más Recientes"
+  translation: "Lo Más Reciente:"
 
 # Social widget
 - id: social_title
@@ -67,8 +67,7 @@
 # Footer
 - id: footer_credits
   translation:
-    "Generado con <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> y \
-    <a href=\"https://github.com/Vimux/Mainroad/\" rel=\"nofollow noopener\" target=\"_blank\">Mainroad</a>."
+    "Generado con <a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a>"
 
 # 404
 - id: 404_title

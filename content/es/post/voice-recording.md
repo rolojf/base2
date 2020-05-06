@@ -1,10 +1,11 @@
 +++
 title = "Grabaciones audio calidad edición"
 author = ["Rolando Flores G"]
-lastmod = 2020-05-01T17:39:37-05:00
+lastmod = 2020-05-05T22:46:15-05:00
 tags = ["howTo"]
 categories = ["tech"]
 draft = false
+subtitle = "Mecánica para obtener la mejor grabación"
 [menu.main]
   weight = 1001
   identifier = "grabaciones-audio-calidad-edición"

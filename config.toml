@@ -70,7 +70,7 @@ mail = "rolo@psolar.mx"
 whatsapp = "5218145930809?text=Mensaje%20desde%20pag.%20de%20internet%20"
 
 [Params.sidebar]
-  widgets = ["recent", "categories", "taglist"]
+  widgets = ["recent"] # , "categories", "taglist"]
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
