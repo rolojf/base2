@@ -12,9 +12,8 @@
                   <div>
                      {{ .Content }}
                      {{ $secciones := default .Site.Params.mainSections .Params.mainSections }}
-                        {{ $paginas := where site.RegularPages "Type" "in" $secciones }}
-                        {{ partial "lista-resumen.html" $paginas }}
-                     {{/* end */}}
+                     {{ $paginas := where .Site.RegularPages "Type" "in" $secciones }}
+                     {{ partial "lista-resumen.html" $paginas }}
                   </div>
                </div>
             </div>
