@@ -1,0 +1,32 @@
+<div class="bg-gray-200 md:max-w-md w-full shadow sm:rounded-lg">
+   <div class="px-4 py-5 sm:p-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+         {{ T "conf_title" }}
+      </h3>
+      <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
+         <p>
+            {{ T "permit_conf" }}
+         </p>
+      </div>
+      <div class="mt-5 flex flex-col md:flex-row md:items-center">
+         <p class="text-sm">
+            {{ T "ask_add" }}
+         </p>
+         <div id="ecuacion" class="flex items-center">
+            <p class="ml-2 text-base">
+               7 +
+            </p>
+            <div class="ml-2 w-10">
+               <label for="valor" class="sr-only">{{ T "val_conf" }}</label>
+               <div class="relative rounded-md shadow-sm">
+                  <input id="valor"
+                         class="form-input block w-full sm:text-sm sm:leading-5"
+                         placeholder="?" />
+               </div>
+            </div>
+            <p class="ml-2 text-base">
+               = 11
+            </p>
+         </div>
+      </div>
+   </div>

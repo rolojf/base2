@@ -69,6 +69,11 @@ github = "rolojf"
 mail = "rolo@psolar.mx"
 whatsapp = "5218145930809?text=Mensaje%20desde%20pag.%20de%20internet%20"
 
+[Params.ref] # OpenGraph
+og_title = "Interesting Ideas"
+og_url = "https://rolo.tips/"
+# og_image = ""
+
 [Params.sidebar]
   widgets = ["recent"] # , "categories", "taglist"]
 

@@ -108,4 +108,14 @@
 - id: cta_email
   translation: "Enter your email"
 
+- id: conf_title
+  translation: "Quick Validation"
 
+- id: permit_conf
+  translation: "Answer please the following, just to validate you'r not a bot."
+
+- id: ask_add
+  translation: "Resolve the following equation: "
+
+- id: val_conf
+  translation: "number"

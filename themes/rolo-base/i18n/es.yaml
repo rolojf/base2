@@ -104,3 +104,15 @@
 
 - id: cta_email
   translation: "Escriba su correo electrónico"
+
+- id: conf_title
+  translation: "Validación Rápida"
+
+- id: permit_conf
+  translation: "Contesta lo siguiente para validar que eres humano y no un bot"
+
+- id: ask_add
+  translation: "Resuleve la siguiente ecuación: "
+
+- id: val_conf
+  translation: "número"
