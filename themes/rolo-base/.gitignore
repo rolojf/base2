@@ -39,3 +39,4 @@ assets/output
 **/_def/
 resources/_gen/
 resources/_gen/*
+/old-assets/

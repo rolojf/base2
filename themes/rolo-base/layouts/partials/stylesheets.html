@@ -1,22 +1,17 @@
-{{ $fuente := resources.Get "output/fonts.css" }}
-{{ $estilo := resources.Get "output/index.css" }}
+{{/* $fuente := resources.Get "output/fonts.css" */}}
+{{ $estilo := resources.Get "css/site.css" | resources.PostCSS }}
 {{ if hugo.IsProduction }}
-   {{ $fuente = $fuente | fingerprint  }}
-   {{ $estilo =  $estilo | fingerprint }}
-   {{/* resources.PostCSS (dict "config" "hugo.postcss.config.js" "verbose" "true") */}} 
-   {{/*  $miCSSslice := slice $fuente $estiloCompacto */}}
-   {{/* $miCSS := $miCSSslice | resources.Concat "output/miEstilo.css" | resources.Fingerprint */}}
-   <link rel="stylesheet" type="text/css" href="{{ $fuente.RelPermalink }}" integrity="{{ $fuente.Data.Integrity }}">
-   <link rel="stylesheet" type="text/css" href="{{ $estilo.RelPermalink }}" integrity="{{ $estilo.Data.Integrity }}">
+   {{/* $fuente = $fuente | fingerprint  */}}
+   {{ $miCSS := $estilo | minify | fingerprint | resources.PostProcess }}
+   <link rel="stylesheet" type="text/css" href="{{ $miCSS.RelPermalink }}" integrity="{{ $miCSS.Data.Integrity }}">
 {{ else }}
-   {{ $miCSS := slice $fuente $estilo | resources.Concat "./output/miEstilo.css" }}
-   {{ $path := "./assets/output" }}
-   {{ $files := readDir $path }}
-   {{- range $files -}}
-      {{-  if in .Name "woff" -}}
-         {{ $file := resources.Get (printf "%s%s" "output/" .Name) }}
-         <link rel="preload" href="{{ $file.RelPermalink }}" as="font" crossorigin>
-      {{ end }}
-   {{ end }}
-   <link rel="stylesheet" type="text/css" href="{{ $miCSS.RelPermalink }}">
+   {{/* $path := "./static/css" */}}
+   {{/* $files := readDir $path */}}
+   {{/*- range $files -*/}}
+      {{/*-  if in .Name "woff" -*/}}
+         {{/* $file := resources.Get (printf "%s%s" "output/" .Name) */}}
+         {{/*<link rel="preload" href="{{ $file.RelPermalink }}" as="font" crossorigin> */}}
+      {{/* end */}}
+   {{/* end */}}
+   <link rel="stylesheet" type="text/css" href="{{ $estilo.RelPermalink }}">
 {{ end }}
