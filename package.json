@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "run-p dev:webpack dev:hugo",
     "dev:hugo": "NODE_ENV=development hugo server --disableFastRender --navigateToChanged",
-    "dev:webpack": "webpack",
+    "dev:webpack": "webpack --watch",
     "prod": "run-s deploy:assets build:hugo",
     "deploy:assets": "webpack -p",
     "build:hugo": "NODE_ENV=production hugo -e production --gc --minify"

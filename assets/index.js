@@ -2,7 +2,7 @@
 import "alpinejs";
 const { Elm } = require("./Main");
 var app = Elm.Main.init({ flags: 6 });
-
+//nota
 app.ports.toJs.subscribe((data) => {
    console.log(data);
 });
