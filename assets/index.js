@@ -1,6 +1,4 @@
 "use strict";
-// To use https://github.com/KyleAMathews/typefaces
-// require("typeface-inter");
 import "alpinejs";
 const { Elm } = require("./Main");
 var app = Elm.Main.init({ flags: 6 });
