@@ -1,5 +1,5 @@
 +++
-elm = "soloAlpine"
+elm = "SoloAlpine"
 subtitle = "Este es un juegito en elm"
 menu = "secundario"
 +++

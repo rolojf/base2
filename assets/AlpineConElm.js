@@ -1,6 +1,6 @@
 "use strict";
 import "alpinejs";
-const { Elm } = require("./AlpineConElmValidar");
+const { Elm } = require("./src/AlpineConElmValidar");
 //nota
 app.ports.toJs.subscribe((data) => {
    console.log(data);

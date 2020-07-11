@@ -1,6 +1,6 @@
 "use strict";
 import "alpinejs";
-const { Elm } = require("./SpecialElmAppMain");
+const { Elm } = require("./src/SpecialElmAppMain");
 //nota
 app.ports.toJs.subscribe((data) => {
    console.log(data);

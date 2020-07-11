@@ -12,9 +12,9 @@ console.log("\x1b[36m%s\x1b[0m", `** elm-webpack-starter: mode "${MODE}", withDe
 var common = {
    mode: MODE,
    entry: {
-      soloAlpine: "./assets/SoloAlpine.js",
-      alpineConElm: "./assets/AlpineConElm.js",
-      specialElmApp: "./assets/SpecialElmApp.js",
+      SoloAlpine: "./assets/SoloAlpine.js",
+      AlpineConElm: "./assets/AlpineConElm.js",
+      SpecialElmApp: "./assets/SpecialElmApp.js",
    },
    output: {
       path: path.join(__dirname, "assets", "js"),
@@ -54,8 +54,7 @@ if (MODE === "development") {
                exclude: [/elm-stuff/, /node_modules/],
                use: [
                   { loader: "elm-hot-webpack-loader" },
-                  {
-                     loader: "elm-webpack-loader",
+                  { loader: "elm-webpack-loader",
                      options: {
                         // add Elm's debug overlay to output
                         debug: withDebug,
