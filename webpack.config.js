@@ -12,9 +12,9 @@ console.log("\x1b[36m%s\x1b[0m", `** elm-webpack-starter: mode "${MODE}", withDe
 var common = {
    mode: MODE,
    entry: {
-      soloAlpine: "./assets/soloAlpine.js",
-      alpineConElm: "./assets/alpineConElm.js",
-      specialElmApp: "./assets/specialElmApp.js",
+      soloAlpine: "./assets/SoloAlpine.js",
+      alpineConElm: "./assets/AlpineConElm.js",
+      specialElmApp: "./assets/SpecialElmApp.js",
    },
    output: {
       path: path.join(__dirname, "assets", "js"),

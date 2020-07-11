@@ -72,24 +72,28 @@ Adicionalmente se puede poner datos extras programando en config.toml así:
 * Javascript y Elm
 Elm y Javascript ahora se precomplia con webpack
 ** Definir cual aplicación corresponde en cada página
-En el frontmatter de la hoja correspondiente, donde va la aplicación de JS ó Elm, se debe poner elm = "nombreEntryJS"
+En el frontmatter de la hoja correspondiente, donde va la aplicación de JS ó Elm, se debe poner elm = "NombreEntryJS"
 Poniendo solo el nombre de la aplicación sin la extensión (el ".js")
+El nombre inica con en mayúsculas
 
 O si es en orgmode con:
-    ~#+hugo_custom_front_matter: :elm alpineConElm~
+    ~#+hugo_custom_front_matter: :elm AlpineConElm~
 o bien diferente para cada tree, dentro de las propiedades, así:
-    ~:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :key1 value1~
+    ~:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :key1 SpecialElmApp~
 ** Poner un div manualmente en la hoja donde corresponda *por hacer*
 con un ~<div class="elm-nombreEntryJS-nombreDeLaElmApp"></div>~ para definir el área que toma el la aplicación.
 ** Se crea nombreEntry.js en assets
 Ahí se importan las aplicación(es) de elm (véase demo.js) y o javascrit así
 
 #+begin_src javascript
-const { Elm } = require("./nombreDeLaElmApp");
+const { Elm } = require("./NombreEntryJSNombreDeLaElmApp");
 #+end_src
 ** Se modifica el webpack.config.js
-para incluir el como entry: ~nombreEntry: "./assets/nombreEntry.js",~
+para incluir el como entry: ~nombreEntry: "./assets/NombreEntry.js",~
 
 ** Colocar las aplicaciones de Elm en assets/NombreDeLaElmApp.elm
 ** Para usar tailwind.el
 Por revisar: se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
+** Nota
+En ~assets/js~ se va a poner las apps compiladas de js y elm, nombres con minúsculas
+en ~assetes~ se van a poner las app por compliar en Elm y su EntreApp de Javascript

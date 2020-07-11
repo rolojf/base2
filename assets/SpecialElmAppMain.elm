@@ -1,4 +1,4 @@
-port module Main exposing (Model, Msg(..), add1, init, main, toJs, update, view)
+port module SpecialElmAppMain exposing (Model, Msg(..), add1, init, main, toJs, update, view)
 
 import Browser
 import Html exposing (..)

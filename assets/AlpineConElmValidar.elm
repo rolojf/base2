@@ -1,4 +1,4 @@
-module Validar exposing (main)
+module AlpineConElmValidar exposing (main)
 
 import Html exposing (div, h1, img, label, text)
 import Html.Attributes exposing (..)
