@@ -1,17 +1,11 @@
-{{ if (fileExists "./assets/output/index.js") }}
-   {{ $js := resources.Get "output/index.js" }}
-   {{ with $js }}
-      {{ $secureJS := . | resources.Fingerprint }}
-      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous" defer></script>
-   {{ end }}
-{{ end }}
-{{ if .Params.elm }}
-   {{ $elmArch := path.Join "output" (delimit (slice .Params.elm ".js") "") }}
-   {{ $elm := resources.Get $elmArch }}
-   {{ with $elm }}
-      {{ $elm = . | resources.Fingerprint }}
-      <script type="text/javascript"  src="{{ $elm.RelPermalink }}" integrity="{{ $elm.Data.Integrity }}" crossorigin="anonymous" defer>
-      </script>
-   {{ end }}
-{{ end }}
+{{ printf "<!-- Este es partials/scripts.html -->" | safeHTML }}
+{{- $js := $.Param "elm" -}}
+{{- $jsNombre := printf "js/%s.js" $js -}}
+{{ printf "<!-- El archivo es " $jsNombre "-->" | safeHTML }}
+{{- $jsFile := resources.Get $jsNombre | resources.Fingerprint "sha256" -}}
+<script type="text/javascript"
+        src="{{ $jsFile.RelPermalink }}"
+        integrity="{{ $jsFile.Data.Integrity }}"
+        crossorigin="anonymous">
+</script>
 

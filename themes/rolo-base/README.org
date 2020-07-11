@@ -4,14 +4,6 @@ En especial se debe poner en el front matter:
 
 * Este repositorio es para desarrollo y prueba del theme
 Sin embargo el tema en sí, es un subtree apararte 
-* Para integrar aplicaciones en elm
-1. En la hoja md o html, donde va la aplicación en Elm, se debe poner en el frontmatter elm = "nombre"; siendo nombre de la aplicación.
-2. Poner un div class="elm-nombre" para definir el área.
-3. Se modifica el package.json para que junto con index también nombre.js se compile a elm en parcel
-4. Se crea nombre.js en assets importando la aplicación elm (véase demo.js)
-5. La aplicacíon de Elm va en assets/src/nombre/Main.elm
-6. Para usar tailwind.el se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
-
 * Redactar en bilingue
 En el menu aparece la opción de traducido si la hay.
 En general se establece
@@ -76,3 +68,28 @@ Adicionalmente se puede poner datos extras programando en config.toml así:
     url = "/post/"
     weight = -110
 #+end_src
+
+* Javascript y Elm
+Elm y Javascript ahora se precomplia con webpack
+** Definir cual aplicación corresponde en cada página
+En el frontmatter de la hoja correspondiente, donde va la aplicación de JS ó Elm, se debe poner elm = "nombreEntryJS"
+Poniendo solo el nombre de la aplicación sin la extensión (el ".js")
+
+O si es en orgmode con:
+    ~#+hugo_custom_front_matter: :elm alpineConElm~
+o bien diferente para cada tree, dentro de las propiedades, así:
+    ~:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :key1 value1~
+** Poner un div manualmente en la hoja donde corresponda *por hacer*
+con un ~<div class="elm-nombreEntryJS-nombreDeLaElmApp"></div>~ para definir el área que toma el la aplicación.
+** Se crea nombreEntry.js en assets
+Ahí se importan las aplicación(es) de elm (véase demo.js) y o javascrit así
+
+#+begin_src javascript
+const { Elm } = require("./nombreDeLaElmApp");
+#+end_src
+** Se modifica el webpack.config.js
+para incluir el como entry: ~nombreEntry: "./assets/nombreEntry.js",~
+
+** Colocar las aplicaciones de Elm en assets/NombreDeLaElmApp.elm
+** Para usar tailwind.el
+Por revisar: se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.

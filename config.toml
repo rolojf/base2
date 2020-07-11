@@ -57,7 +57,7 @@ DefaultContentLanguage = "es"
   mainSections = ["post"] # , "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   dateformat = "2006-01-02" # Change the format of dates
   #  sectionPagesMenu = "main"
-
+  elm = "simple"
 
 [Params.social]
 # Enable parts of social widgetpost/

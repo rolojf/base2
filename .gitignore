@@ -41,4 +41,5 @@ resources/_gen/
 resources/_gen/*
 /old-assets/
 /static/assets
-static/assets/index.js
+/assets/js/
+/TAGS

@@ -11,11 +11,15 @@ console.log("\x1b[36m%s\x1b[0m", `** elm-webpack-starter: mode "${MODE}", withDe
 
 var common = {
    mode: MODE,
-   entry: "./assets/index.js",
+   entry: {
+      soloAlpine: "./assets/soloAlpine.js",
+      alpineConElm: "./assets/alpineConElm.js",
+      specialElmApp: "./assets/specialElmApp.js",
+   },
    output: {
-      path: path.join(__dirname, "static", "assets"),
+      path: path.join(__dirname, "assets", "js"),
       publicPath: "/",
-      filename: "index.js",
+      filename: "[name].js",
    },
    plugins: [],
    resolve: {
@@ -92,12 +96,6 @@ if (MODE === "production") {
             verbose: true,
             dry: false,
          }),
-         // Copy static assets
-         new CopyWebpackPlugin([
-            {
-               from: "src/assets",
-            },
-         ]),
       ],
       module: {
          rules: [

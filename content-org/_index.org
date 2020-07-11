@@ -1,9 +1,11 @@
 #+hugo_base_dir: ../
 #+hugo_section: /
 #+hugo_level_offset: 1
+#+hugo_custom_front_matter: :elm alpineConElm
 * Título de headline en orgmode home                         :unoTag:@unoCat:
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_SECTION*: es
 :END:
 ** Este sería el primer headline                            :dosTag:@dosCat:
 Se supone que el contenido de la página principal aquí se escribe
