@@ -1,4 +1,4 @@
-{{ printf "<!-- Este es partials/scripts.html -->" | safeHTML }}
+{{ printf "<!-- Este es partials/hscripts.html -->" | safeHTML }}
 {{- $js := $.Param "elm" -}}
 {{- $jsNombre := printf "js/%s.js" $js -}}
 {{ printf "<!-- El archivo es " $jsNombre "-->" | safeHTML }}
@@ -8,10 +8,3 @@
         integrity="{{ $jsFile.Data.Integrity }}"
         crossorigin="anonymous">
 </script>
-{{/*
-<script type="text/javascript"
-        Elm.Picshare.init({
-        node: document.getElementById('main')
-        });
-</script>
-*/}}

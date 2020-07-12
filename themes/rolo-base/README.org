@@ -74,24 +74,32 @@ Elm y Javascript ahora se precomplia con webpack
 ** Definir cual aplicación corresponde en cada página
 En el frontmatter de la hoja correspondiente, donde va la aplicación de JS ó Elm, se debe poner elm = "NombreEntryJS"
 Poniendo solo el nombre de la aplicación sin la extensión (el ".js")
-El nombre inica con en mayúsculas
-
-O si es en orgmode con:
+O bien, si es en orgmode con:
     ~#+hugo_custom_front_matter: :elm AlpineConElm~
-o bien diferente para cada tree, dentro de las propiedades, así:
+ó para cada arbol, dentro de las propiedades, así:
     ~:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :key1 SpecialElmApp~
 ** Poner un div manualmente en la hoja donde corresponda *por hacer*
-con un ~<div class="elm-nombreEntryJS-nombreDeLaElmApp"></div>~ para definir el área que toma el la aplicación.
+con un ~<div id="myapp"></div>~ o el id que sea, para definir el área que toma el la aplicación.
 ** Se crea nombreEntry.js en assets
-Ahí se importan las aplicación(es) de elm (véase demo.js) y o javascrit así
-
+Ahí se importan las aplicación(es) de elm (véase demo.js)
 #+begin_src javascript
-const { Elm } = require("./NombreEntryJSNombreDeLaElmApp");
+const { Elm } = require("./src/NombreDeLaElmApp");
+var app = Elm.Main.init({
+    node: document.getElementById('myapp')
+  });
+app.ports.deElmAlJS.subscribe(function(message) {
+    console.log(message);
+});
+elemento.addEventListener("tipEvento", function(event) {
+    app.ports.messageReceiver.send(event.data);
+});
 #+end_src
+También se puede escribir de Javascript cualquier programas.
 ** Se modifica el webpack.config.js
-para incluir el como entry: ~nombreEntry: "./assets/NombreEntry.js",~
+para incluir el como entry: ~nombreEntry: "./assets/nombreEntry.js",~
 
-** Colocar las aplicaciones de Elm en assets/NombreDeLaElmApp.elm
+** Colocar las aplicaciones de Elm
+en assets/src/ElmApp.elm
 ** Para usar tailwind.el
 Por revisar: se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
 ** Nota

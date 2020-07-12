@@ -10,3 +10,5 @@ elm = "AlpineConElm"
 ## Este sería el primer headline {#este-sería-el-primer-headline}
 
 Se supone que el contenido de la página principal aquí se escribe
+
+<div id="myapp"></div>

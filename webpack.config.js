@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const ClosurePlugin = require("closure-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 var MODE = process.env.npm_lifecycle_event === "prod" ? "production" : "development";
@@ -15,6 +14,7 @@ var common = {
       SoloAlpine: "./assets/SoloAlpine.js",
       AlpineConElm: "./assets/AlpineConElm.js",
       SpecialElmApp: "./assets/SpecialElmApp.js",
+      simple: "./assets/simple.js",
    },
    output: {
       path: path.join(__dirname, "assets", "js"),
@@ -23,7 +23,7 @@ var common = {
    },
    plugins: [],
    resolve: {
-      modules: [path.join(__dirname, "assets"), "node_modules"],
+      modules: [path.join(__dirname, "assets"), path.join(__dirname, "assets", "src"), "node_modules"],
       extensions: [".js", ".elm"],
    },
    module: {
@@ -43,9 +43,9 @@ if (MODE === "development") {
    module.exports = merge(common, {
       plugins: [
          // Suggested for hot-loading
-         new webpack.NamedModulesPlugin(),
+         // new webpack.NamedModulesPlugin(),
          // Prevents compilation errors causing the hot loader to lose state
-         new webpack.NoEmitOnErrorsPlugin(),
+         // new webpack.NoEmitOnErrorsPlugin(),
       ],
       module: {
          rules: [
@@ -54,7 +54,8 @@ if (MODE === "development") {
                exclude: [/elm-stuff/, /node_modules/],
                use: [
                   { loader: "elm-hot-webpack-loader" },
-                  { loader: "elm-webpack-loader",
+                  {
+                     loader: "elm-webpack-loader",
                      options: {
                         // add Elm's debug overlay to output
                         debug: withDebug,
@@ -77,9 +78,7 @@ if (MODE === "production") {
                { mode: "STANDARD" },
                {
                   // compiler flags here
-                  //
                   // for debugging help, try these:
-                  //
                   // formatting: 'PRETTY_PRINT',
                   // debug: true
                   // renaming: false
@@ -90,10 +89,10 @@ if (MODE === "production") {
       plugins: [
          // Delete everything from output-path (/dist) and report to user
          new CleanWebpackPlugin({
-            root: __dirname,
-            exclude: [],
+            //root: __dirname,
+            //exclude: [],
             verbose: true,
-            dry: false,
+            dry: true,
          }),
       ],
       module: {
