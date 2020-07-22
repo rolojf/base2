@@ -5,6 +5,7 @@ lastmod = 2020-05-05T22:46:15-05:00
 tags = ["howTo"]
 categories = ["tech"]
 draft = false
+elm = "probandoElms"
 subtitle = "Mecánica para obtener la mejor grabación"
 [menu.main]
   weight = 1001
@@ -41,3 +42,6 @@ With neither of the boxes checked.
 
 De FLAC a Opus
 ffmpeg -i inputfile -acodec libopus -b:a 36000 -application voip outputfile.
+
+<div id="myapp1"></div>
+<div id="myapp2"></div>

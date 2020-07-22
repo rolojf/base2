@@ -15,6 +15,7 @@ var common = {
       AlpineConElm: "./assets/AlpineConElm.js",
       SpecialElmApp: "./assets/SpecialElmApp.js",
       simple: "./assets/simple.js",
+      probandoElms: "./assets/probandoElms.js",
    },
    output: {
       path: path.join(__dirname, "assets", "js"),
