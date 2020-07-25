@@ -108,6 +108,6 @@ Como mejora opcional, sería poner inversor alemán de 10 años de garantía por
 :PROPERTIES:
 :EXPORT_FILE_NAME: pagina-con-elm
 :EXPORT_HUGO_SECTION: pruebas
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :elm "SpecialElmApp" :subtitle "Probando Apicaciones con Elm"
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :elm "specialElmApp" :subtitle "Probando Apicaciones con Elm"
 :END:
 #+HTML: <div id="myapp"></div>

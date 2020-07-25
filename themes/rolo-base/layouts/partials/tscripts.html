@@ -1,26 +1,26 @@
-{{ printf "<!-- Este es partials/hscripts.html -->" | safeHTML }}
-{{/* Tailwind */}}
-{{ $libs := resources.Get "js/js-libs/alpine.js" }}
+{{ printf "<!-- Este es partials/tscripts.html -->" | safeHTML }}
+{{/* Simple Call */}}
+{{ $simple := resources.Get "js/simple.js" }}
 {{ if hugo.IsProduction }}
-   {{ $libs = $libs | resources.Minify | resources.Fingerprint "md5"}}
+   {{ $simple = $simple | resources.Minify | resources.Fingerprint "md5"}}
    <script type="text/javascript"
-           src="{{ $libs.RelPermalink }}"
-           integrity="{{ $libs.Data.Integrity }}"
+           src="{{ $simple.RelPermalink }}"
+           integrity="{{ $simple.Data.Integrity }}"
            crossorigin="anonymous"
            defer>
    </script>
 {{ else }}
    <script type="text/javascript"
-           src="{{ $libs.RelPermalink }}"
+           src="{{ $simple.RelPermalink }}"
            defer>
    </script>
 {{ end }}
 
-{{/* Elm Compilado */}}
+{{/* Elm Call */}}
 {{ $js := $.Param "elm" }}
 {{ if ne $js "noelm" }}
-   {{ $jsNombre := printf "elm/%s.js" $js }}
-   {{ printf "<!-- El archivo es elm head " $jsNombre "-->" | safeHTML }}
+   {{ $jsNombre := printf "js/%s.js" $js }}
+   {{ printf "<!-- El archivo es elm tail es " $jsNombre "-->" | safeHTML }}
    {{ $jsFile := resources.Get $jsNombre }}
    {{ if hugo.IsProduction }}
       {{ $jsFile = $jsFile | resources.Minify | resources.Fingerprint "md5"}}
@@ -30,8 +30,8 @@
               crossorigin="anonymous">
       </script>
    {{ else }}
-         <script type="text/javascript"
-            src="{{ $jsFile.RelPermalink }}">
-         </script>
+      <script type="text/javascript"
+              src="{{ $jsFile.RelPermalink }}">
+      </script>
    {{ end }}
 {{ end }}

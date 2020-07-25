@@ -14,4 +14,4 @@ view model =
 
 main : Html msg
 main =
-    view "no model yet"
+    view "no hay modulo aún"

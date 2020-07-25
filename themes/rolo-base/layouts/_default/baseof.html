@@ -14,10 +14,11 @@
       {{- end }}
       {{ partial "stylesheets.html" . }}
       <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+      {{ partial "hscripts.html" . }}
    </head>
    <body>
       {{ block "cuerpo" . }}
       {{ end }}
-      {{ partial "hscripts.html" . }}
+      {{ partial "tscripts.html" . }}
    </body>
 </html>
