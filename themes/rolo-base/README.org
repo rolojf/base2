@@ -70,7 +70,6 @@ Adicionalmente se puede poner datos extras programando en config.toml así:
 #+end_src
 
 * Javascript y Elm
-Elm y Javascript ahora se precomplia con webpack
 ** Definir cual aplicación corresponde en cada página
 En el frontmatter de la hoja correspondiente, donde va la aplicación de JS ó Elm, se debe poner elm = "NombreEntryJS"
 Poniendo solo el nombre de la aplicación sin la extensión (el ".js")
@@ -80,10 +79,9 @@ O bien, si es en orgmode con:
     ~:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :key1 SpecialElmApp~
 ** Poner un div manualmente en la hoja donde corresponda *por hacer*
 con un ~<div id="myapp"></div>~ o el id que sea, para definir el área que toma el la aplicación.
-** Se crea nombreEntry.js en assets
-Ahí se importan las aplicación(es) de elm (véase demo.js)
+** Se crea el script de Inicialización en nombreElm.js en assets/js
+De ahí se importan las aplicación(es) de js.
 #+begin_src javascript
-const { Elm } = require("./src/NombreDeLaElmApp");
 var app = Elm.Main.init({
     node: document.getElementById('myapp')
   });
@@ -95,13 +93,15 @@ elemento.addEventListener("tipEvento", function(event) {
 });
 #+end_src
 También se puede escribir de Javascript cualquier programas.
-** Se modifica el webpack.config.js
-para incluir el como entry: ~nombreEntry: "./assets/nombreEntry.js",~
-
 ** Colocar las aplicaciones de Elm
-en assets/src/ElmApp.elm
+en assets/elm/src/nombreElm/ElmApp.elm
+nombreElm es lo que se puso en el front Matter
+Y es el mismo nombre que tendrá la aplicación compilada en assets/elm/nombreElm.js y que se importará en el header.
 ** Para usar tailwind.el
-Por revisar: se copia el módulo desde otro folder donde se hace ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
-** Nota
-En ~assets/js~ se va a poner las apps compiladas de js y elm, nombres con minúsculas
-en ~assetes~ se van a poner las app por compliar en Elm y su EntreApp de Javascript
+Intenté usar [[https://github.com/monty5811/postcss-elm-tailwind][postcss-elm-tailwind]] pero el tiempo de compilación era demasiado alto. Que copié el módulo desde el folder donde se crea el hace el archivo ../doTw4Elm y se tiene que poner en el mismo folder de la aplicación.
+La idea es que en elm se usen las menos clases posibles de tailwind y crear clases en css que agrupen clases de tailwind con @apply.
+
+** En resumen
+En ~assets/js~ se va a poner las apps de js y las integradoras de elm
+en ~assets/elm~ se a automáticamente las apps compiladas por Elm
+En ~assets/elm/src~ y en su respectivo folder se ponen las apps de elm
