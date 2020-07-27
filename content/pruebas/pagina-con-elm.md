@@ -2,7 +2,7 @@
 title = "Prueba si funciona elm"
 author = ["Rolando Flores G"]
 draft = false
-elm = "specialElmApp"
+elm = "SpecialElmApp"
 subtitle = "Probando Apicaciones con Elm"
 +++
 

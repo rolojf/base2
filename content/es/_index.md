@@ -4,11 +4,11 @@ author = ["Rolando Flores G"]
 tags = ["unoTag"]
 categories = ["unoCat"]
 draft = false
-elm = "alpineConElm"
+elm = "Interval"
 +++
 
 ## Este sería el primer headline {#este-sería-el-primer-headline}
 
 Se supone que el contenido de la página principal aquí se escribe
 
-<div id="myapp"></div>
+<div id="valida"></div>

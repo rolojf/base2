@@ -5,7 +5,6 @@ lastmod = 2020-05-05T22:46:15-05:00
 tags = ["howTo"]
 categories = ["tech"]
 draft = false
-elm = "probandoElms"
 subtitle = "Mecánica para obtener la mejor grabación"
 [menu.main]
   weight = 1001

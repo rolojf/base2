@@ -43,3 +43,4 @@ resources/_gen/*
 /static/assets
 /assets/js/
 /TAGS
+*.html#

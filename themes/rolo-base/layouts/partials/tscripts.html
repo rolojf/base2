@@ -20,7 +20,6 @@
 {{ $js := $.Param "elm" }}
 {{ if ne $js "noelm" }}
    {{ $jsNombre := printf "js/%s.js" $js }}
-   {{ printf "<!-- El archivo es elm tail es " $jsNombre "-->" | safeHTML }}
    {{ $jsFile := resources.Get $jsNombre }}
    {{ if hugo.IsProduction }}
       {{ $jsFile = $jsFile | resources.Minify | resources.Fingerprint "md5"}}

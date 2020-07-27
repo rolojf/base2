@@ -1,7 +1,7 @@
 #+hugo_base_dir: ../
 #+hugo_section: /
 #+hugo_level_offset: 1
-#+hugo_custom_front_matter: :elm alpineConElm
+#+hugo_custom_front_matter: :elm Interval
 * Título de headline en orgmode home                         :unoTag:@unoCat:
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
@@ -9,15 +9,16 @@
 :END:
 ** Este sería el primer headline                            :dosTag:@dosCat:
 Se supone que el contenido de la página principal aquí se escribe
-#+HTML: <div id="myapp"></div>
-* Title headline in org mode                                 :oneTag:@oneCat:
+#+HTML: <div id="valida"></div>
+* Title headline in org mode                                :oneTag:@oneCat:
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_SECTION*: en
 :END:
 ** This is the first headline                               :twoTag:@twoCat:
 Let's see if it goes well, here I expect to see the english part
-#+HTML: <div id="myapp"></div>
+#+HTML: id="valida"></div>
+
 
 
 

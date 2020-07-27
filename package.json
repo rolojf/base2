@@ -11,7 +11,7 @@
     "dev:hugo": "NODE_ENV=development hugo server --disableFastRender --navigateToChanged",
     "dev:elm": "nodemon --exec ./build-elm.sh",
     "prod": "run-s deploy:assets build:hugo",
-    "deploy:assets": "./build-elm.sh --optimize",
+    "deploy:assets": "echo \"manualmente assets/elm/build-elm.sh --optimize\"",
     "build:hugo": "NODE_ENV=production hugo -e production --gc --minify"
   },
   "devDependencies": {

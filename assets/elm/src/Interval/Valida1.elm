@@ -1,4 +1,4 @@
-port module Main exposing (..)
+port module Valida1 exposing (..)
 
 import Browser
 import Html exposing (..)
@@ -80,6 +80,39 @@ update msg model =
 -- VIEW
 
 
+viewChallenge : Model -> Html Msg
+viewChallenge model =
+    div [ class "hidden la-base-modal" ]
+        [ div [ class "mm-fondo" ]
+            [ h3 [ class "mm-titulo" ]
+                [ text "Validación Rápida" ]
+            , p [ class "mm-explic" ]
+                [ text "Contesta lo siguiente para validar que eres humano y no un bot" ]
+            , div [ class "mm-fondo-reto" ]
+                [ p [ class "mm-reto" ] [ text "Resuleve la siguiente ecuación: " ]
+                , div [ class "mm-acomodo-ecuacion" ]
+                    [ p []
+                        [ text "7 + " ]
+                    , label
+                        [ class "sr-only"
+                        , for "valor"
+                        ]
+                        [ text "número" ]
+                    , input
+                        [ class "mm-campo"
+                        , id "valor"
+                        , class "form-input"
+                        , placeholder "?"
+                        ]
+                        []
+                    , p []
+                        [ text "= 11" ]
+                    ]
+                ]
+            ]
+        ]
+
+
 view : Model -> Html Msg
 view model =
     div []
@@ -97,6 +130,7 @@ view model =
             , value model.email
             ]
             []
+        , viewChallenge model
         ]
 
 

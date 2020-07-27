@@ -5321,7 +5321,7 @@ var $elm$core$Task$perform = F2(
 var $elm$browser$Browser$document = _Browser_document;
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Main$init = function (flags) {
+var $author$project$SpecialApp$init = function (flags) {
 	return _Utils_Tuple2(
 		{counter: flags, serverMessage: ''},
 		$elm$core$Platform$Cmd$none);
@@ -5329,10 +5329,10 @@ var $author$project$Main$init = function (flags) {
 var $elm$json$Json$Decode$int = _Json_decodeInt;
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$OnServerResponse = function (a) {
+var $author$project$SpecialApp$OnServerResponse = function (a) {
 	return {$: 'OnServerResponse', a: a};
 };
-var $author$project$Main$add1 = function (model) {
+var $author$project$SpecialApp$add1 = function (model) {
 	return _Utils_update(
 		model,
 		{counter: model.counter + 1});
@@ -6125,7 +6125,7 @@ var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
 		{body: $elm$http$Http$emptyBody, expect: r.expect, headers: _List_Nil, method: 'GET', timeout: $elm$core$Maybe$Nothing, tracker: $elm$core$Maybe$Nothing, url: r.url});
 };
-var $author$project$Main$httpErrorToString = function (err) {
+var $author$project$SpecialApp$httpErrorToString = function (err) {
 	switch (err.$) {
 		case 'BadUrl':
 			var url = err.a;
@@ -6143,25 +6143,25 @@ var $author$project$Main$httpErrorToString = function (err) {
 };
 var $elm$json$Json$Decode$string = _Json_decodeString;
 var $elm$json$Json$Encode$string = _Json_wrap;
-var $author$project$Main$toJs = _Platform_outgoingPort('toJs', $elm$json$Json$Encode$string);
-var $author$project$Main$update = F2(
+var $author$project$SpecialApp$toJs = _Platform_outgoingPort('toJs', $elm$json$Json$Encode$string);
+var $author$project$SpecialApp$update = F2(
 	function (message, model) {
 		switch (message.$) {
 			case 'Inc':
 				return _Utils_Tuple2(
-					$author$project$Main$add1(model),
-					$author$project$Main$toJs('Hello Js'));
+					$author$project$SpecialApp$add1(model),
+					$author$project$SpecialApp$toJs('Hello Js'));
 			case 'Set':
 				var m = message.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{counter: m}),
-					$author$project$Main$toJs('Hello Js'));
+					$author$project$SpecialApp$toJs('Hello Js'));
 			case 'TestServer':
 				var expect = A2(
 					$elm$http$Http$expectJson,
-					$author$project$Main$OnServerResponse,
+					$author$project$SpecialApp$OnServerResponse,
 					A2($elm$json$Json$Decode$field, 'result', $elm$json$Json$Decode$string));
 				return _Utils_Tuple2(
 					model,
@@ -6182,14 +6182,14 @@ var $author$project$Main$update = F2(
 						_Utils_update(
 							model,
 							{
-								serverMessage: 'Error: ' + $author$project$Main$httpErrorToString(err)
+								serverMessage: 'Error: ' + $author$project$SpecialApp$httpErrorToString(err)
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
 		}
 	});
-var $author$project$Main$Inc = {$: 'Inc'};
-var $author$project$Main$TestServer = {$: 'TestServer'};
+var $author$project$SpecialApp$Inc = {$: 'Inc'};
+var $author$project$SpecialApp$TestServer = {$: 'TestServer'};
 var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$html$Html$Attributes$stringProperty = F2(
@@ -6230,7 +6230,7 @@ var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$html$Html$span = _VirtualDom_node('span');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
-var $author$project$Main$view = function (model) {
+var $author$project$SpecialApp$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -6287,7 +6287,7 @@ var $author$project$Main$view = function (model) {
 								_List_fromArray(
 									[
 										$elm$html$Html$Attributes$class('pure-button pure-button-primary'),
-										$elm$html$Html$Events$onClick($author$project$Main$Inc)
+										$elm$html$Html$Events$onClick($author$project$SpecialApp$Inc)
 									]),
 								_List_fromArray(
 									[
@@ -6316,7 +6316,7 @@ var $author$project$Main$view = function (model) {
 								_List_fromArray(
 									[
 										$elm$html$Html$Attributes$class('pure-button pure-button-primary'),
-										$elm$html$Html$Events$onClick($author$project$Main$TestServer)
+										$elm$html$Html$Events$onClick($author$project$SpecialApp$TestServer)
 									]),
 								_List_fromArray(
 									[
@@ -6351,21 +6351,21 @@ var $author$project$Main$view = function (model) {
 					]))
 			]));
 };
-var $author$project$Main$main = $elm$browser$Browser$document(
+var $author$project$SpecialApp$main = $elm$browser$Browser$document(
 	{
-		init: $author$project$Main$init,
+		init: $author$project$SpecialApp$init,
 		subscriptions: function (_v0) {
 			return $elm$core$Platform$Sub$none;
 		},
-		update: $author$project$Main$update,
+		update: $author$project$SpecialApp$update,
 		view: function (m) {
 			return {
 				body: _List_fromArray(
 					[
-						$author$project$Main$view(m)
+						$author$project$SpecialApp$view(m)
 					]),
 				title: 'Elm 0.19 starter'
 			};
 		}
 	});
-_Platform_export({'Main':{'init':$author$project$Main$main($elm$json$Json$Decode$int)(0)}});}(this));
+_Platform_export({'SpecialApp':{'init':$author$project$SpecialApp$main($elm$json$Json$Decode$int)(0)}});}(this));
