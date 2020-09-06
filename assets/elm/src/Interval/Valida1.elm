@@ -3,22 +3,20 @@ port module Valida1 exposing (..)
 import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (..)
-import Json.Decode as D
-import Json.Encode as E
+import Html.Events exposing (onInput)
 
 
 
 -- MAIN
+-- main : Program String Model Msg
 
 
-main : Program E.Value Model Msg
 main =
     Browser.element
         { init = init
         , view = view
-        , update = updateWithStorage
-        , subscriptions = \_ -> Sub.none
+        , update = update
+        , subscriptions = subscription
         }
 
 
@@ -26,29 +24,29 @@ main =
 -- MODEL
 
 
+type Estado
+    = NoSe
+    | Paso Bool
+
+
 type alias Model =
-    { name : String
-    , email : String
+    { probando : Bool
+    , resultado : Estado
+    , orden : String
     }
 
 
-
--- Here we use "flags" to load information in from localStorage. The
--- data comes in as a JS value, so we define a `decoder` at the bottom
--- of this file to turn it into an Elm value.
---
--- Check out index.html to see the corresponding code on the JS side.
---
+type Msg
+    = Evalua String
+    | Contesto String
 
 
-init : E.Value -> ( Model, Cmd Msg )
-init flags =
-    ( case D.decodeValue decoder flags of
-        Ok model ->
-            model
-
-        Err _ ->
-            { name = "", email = "" }
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( { probando = False
+      , resultado = NoSe
+      , orden = ""
+      }
     , Cmd.none
     )
 
@@ -57,23 +55,37 @@ init flags =
 -- UPDATE
 
 
-type Msg
-    = NameChanged String
-    | EmailChanged String
-
-
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
+update msg modelo =
     case msg of
-        NameChanged name ->
-            ( { model | name = name }
+        Evalua ordena ->
+            ( { probando = True
+              , resultado = NoSe
+              , orden = ordena
+              }
             , Cmd.none
             )
 
-        EmailChanged email ->
-            ( { model | email = email }
-            , Cmd.none
+        Contesto esto ->
+            let
+                resultaPues =
+                    estaBien esto
+            in
+            ( { probando = False
+              , resultado = Paso resultaPues
+              , orden = modelo.orden
+              }
+            , resultoDeEvaluar resultaPues
             )
+
+
+estaBien : String -> Bool
+estaBien respondio =
+    if respondio == "4" then
+        True
+
+    else
+        False
 
 
 
@@ -82,7 +94,7 @@ update msg model =
 
 viewChallenge : Model -> Html Msg
 viewChallenge model =
-    div [ class "hidden la-base-modal" ]
+    div [ class "la-base-modal" ]
         [ div [ class "mm-fondo" ]
             [ h3 [ class "mm-titulo" ]
                 [ text "Validación Rápida" ]
@@ -103,6 +115,7 @@ viewChallenge model =
                         , id "valor"
                         , class "form-input"
                         , placeholder "?"
+                        , onInput Contesto
                         ]
                         []
                     , p []
@@ -114,66 +127,28 @@ viewChallenge model =
 
 
 view : Model -> Html Msg
-view model =
-    div []
-        [ input
-            [ type_ "text"
-            , placeholder "Name"
-            , onInput NameChanged
-            , value model.name
-            ]
-            []
-        , input
-            [ type_ "text"
-            , placeholder "Email"
-            , onInput EmailChanged
-            , value model.email
-            ]
-            []
-        , viewChallenge model
-        ]
+view modelo =
+    if modelo.probando then
+        viewChallenge modelo
+
+    else
+        text ""
 
 
 
 -- PORTS
 
 
-port setStorage : E.Value -> Cmd msg
+port resultoDeEvaluar : Bool -> Cmd msg
+
+
+port activarEvaluacion : (String -> msg) -> Sub msg
 
 
 
--- We want to `setStorage` on every update, so this function adds
--- the setStorage command on each step of the update function.
---
--- Check out index.html to see how this is handled on the JS side.
---
+-- Subscripcion
 
 
-updateWithStorage : Msg -> Model -> ( Model, Cmd Msg )
-updateWithStorage msg oldModel =
-    let
-        ( newModel, cmds ) =
-            update msg oldModel
-    in
-    ( newModel
-    , Cmd.batch [ setStorage (encode newModel), cmds ]
-    )
-
-
-
--- JSON ENCODE/DECODE
-
-
-encode : Model -> E.Value
-encode model =
-    E.object
-        [ ( "name", E.string model.name )
-        , ( "email", E.string model.email )
-        ]
-
-
-decoder : D.Decoder Model
-decoder =
-    D.map2 Model
-        (D.field "name" D.string)
-        (D.field "email" D.string)
+subscription : Model -> Sub Msg
+subscription _ =
+    activarEvaluacion Evalua

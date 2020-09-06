@@ -1,11 +1,11 @@
 {{- $root := . }}
-<aside class="md:float-right">
-   <div class="bg-gray-50 overflow-hidden sm:rounded-lg">
-      <div class="px-4 py-5 sm:p-6">
+<aside>
+   <div class="mt-6 lg:mt-0 bg-gray-50 overflow-hidden rounded-lg">
+      <div class="px-4">
          {{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
 	         {{- range $widget := . }}
-		         {{- $p := printf "widgets/%s.html" $widget }}
-		         {{- partial $p $root }}
+               {{- $p := printf "widgets/%s.html" $widget }}
+               {{- partial $p $root }}
 	         {{- end }}
          {{- end }}
       </div>

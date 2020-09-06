@@ -70,6 +70,8 @@ Adicionalmente se puede poner datos extras programando en config.toml así:
 #+end_src
 
 * Javascript y Elm
+** Compilación e Inclusión
+Se compila y se incluye automaticamente con los comandos/scripts de package.json
 ** Definir cual aplicación corresponde en cada página
 En el frontmatter de la hoja correspondiente, donde va la aplicación de JS ó Elm, se debe poner elm = "NombreEntryJS"
 Poniendo solo el nombre de la aplicación sin la extensión (el ".js")
@@ -77,6 +79,7 @@ O bien, si es en orgmode con:
     ~#+hugo_custom_front_matter: :elm AlpineConElm~
 ó para cada arbol, dentro de las propiedades, así:
     ~:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :key1 SpecialElmApp~
+Para esto la aplicación en JS se pone ~assets/js/NombreEntryJS.js~
 ** Poner un div manualmente en la hoja donde corresponda *por hacer*
 con un ~<div id="myapp"></div>~ o el id que sea, para definir el área que toma el la aplicación.
 ** Se crea el script de Inicialización en nombreElm.js en assets/js

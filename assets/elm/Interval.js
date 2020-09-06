@@ -5144,104 +5144,69 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $elm$json$Json$Decode$decodeValue = _Json_run;
-var $author$project$Valida1$Model = F2(
-	function (name, email) {
-		return {email: email, name: name};
-	});
-var $elm$json$Json$Decode$field = _Json_decodeField;
-var $elm$json$Json$Decode$string = _Json_decodeString;
-var $author$project$Valida1$decoder = A3(
-	$elm$json$Json$Decode$map2,
-	$author$project$Valida1$Model,
-	A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string),
-	A2($elm$json$Json$Decode$field, 'email', $elm$json$Json$Decode$string));
+var $author$project$Valida1$NoSe = {$: 'NoSe'};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Valida1$init = function (flags) {
+var $author$project$Valida1$init = function (_v0) {
 	return _Utils_Tuple2(
-		function () {
-			var _v0 = A2($elm$json$Json$Decode$decodeValue, $author$project$Valida1$decoder, flags);
-			if (_v0.$ === 'Ok') {
-				var model = _v0.a;
-				return model;
-			} else {
-				return {email: '', name: ''};
-			}
-		}(),
+		{orden: '', probando: false, resultado: $author$project$Valida1$NoSe},
 		$elm$core$Platform$Cmd$none);
 };
-var $elm$core$Platform$Sub$batch = _Platform_batch;
-var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $elm$json$Json$Encode$object = function (pairs) {
-	return _Json_wrap(
-		A3(
-			$elm$core$List$foldl,
-			F2(
-				function (_v0, obj) {
-					var k = _v0.a;
-					var v = _v0.b;
-					return A3(_Json_addField, k, v, obj);
-				}),
-			_Json_emptyObject(_Utils_Tuple0),
-			pairs));
+var $author$project$Valida1$Evalua = function (a) {
+	return {$: 'Evalua', a: a};
 };
-var $elm$json$Json$Encode$string = _Json_wrap;
-var $author$project$Valida1$encode = function (model) {
-	return $elm$json$Json$Encode$object(
-		_List_fromArray(
-			[
-				_Utils_Tuple2(
-				'name',
-				$elm$json$Json$Encode$string(model.name)),
-				_Utils_Tuple2(
-				'email',
-				$elm$json$Json$Encode$string(model.email))
-			]));
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $author$project$Valida1$activarEvaluacion = _Platform_incomingPort('activarEvaluacion', $elm$json$Json$Decode$string);
+var $author$project$Valida1$subscription = function (_v0) {
+	return $author$project$Valida1$activarEvaluacion($author$project$Valida1$Evalua);
 };
-var $author$project$Valida1$setStorage = _Platform_outgoingPort('setStorage', $elm$core$Basics$identity);
+var $author$project$Valida1$Paso = function (a) {
+	return {$: 'Paso', a: a};
+};
+var $author$project$Valida1$estaBien = function (respondio) {
+	return (respondio === '4') ? true : false;
+};
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $author$project$Valida1$resultoDeEvaluar = _Platform_outgoingPort('resultoDeEvaluar', $elm$json$Json$Encode$bool);
 var $author$project$Valida1$update = F2(
-	function (msg, model) {
-		if (msg.$ === 'NameChanged') {
-			var name = msg.a;
+	function (msg, modelo) {
+		if (msg.$ === 'Evalua') {
+			var ordena = msg.a;
 			return _Utils_Tuple2(
-				_Utils_update(
-					model,
-					{name: name}),
+				{orden: ordena, probando: true, resultado: $author$project$Valida1$NoSe},
 				$elm$core$Platform$Cmd$none);
 		} else {
-			var email = msg.a;
+			var esto = msg.a;
+			var resultaPues = $author$project$Valida1$estaBien(esto);
 			return _Utils_Tuple2(
-				_Utils_update(
-					model,
-					{email: email}),
-				$elm$core$Platform$Cmd$none);
+				{
+					orden: modelo.orden,
+					probando: false,
+					resultado: $author$project$Valida1$Paso(resultaPues)
+				},
+				$author$project$Valida1$resultoDeEvaluar(resultaPues));
 		}
 	});
-var $author$project$Valida1$updateWithStorage = F2(
-	function (msg, oldModel) {
-		var _v0 = A2($author$project$Valida1$update, msg, oldModel);
-		var newModel = _v0.a;
-		var cmds = _v0.b;
-		return _Utils_Tuple2(
-			newModel,
-			$elm$core$Platform$Cmd$batch(
-				_List_fromArray(
-					[
-						$author$project$Valida1$setStorage(
-						$author$project$Valida1$encode(newModel)),
-						cmds
-					])));
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Valida1$Contesto = function (a) {
+	return {$: 'Contesto', a: a};
+};
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
 	});
-var $elm$json$Json$Decode$value = _Json_decodeValue;
-var $author$project$Valida1$EmailChanged = function (a) {
-	return {$: 'EmailChanged', a: a};
-};
-var $author$project$Valida1$NameChanged = function (a) {
-	return {$: 'NameChanged', a: a};
-};
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
+var $elm$html$Html$h3 = _VirtualDom_node('h3');
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$html$Html$label = _VirtualDom_node('label');
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
@@ -5256,6 +5221,7 @@ var $elm$html$Html$Events$stopPropagationOn = F2(
 			event,
 			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
 	});
+var $elm$json$Json$Decode$field = _Json_decodeField;
 var $elm$json$Json$Decode$at = F2(
 	function (fields, decoder) {
 		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
@@ -5274,30 +5240,14 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
-var $elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$string(string));
-	});
-var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
-var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
-var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
-var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
-var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
-var $elm$html$Html$h3 = _VirtualDom_node('h3');
-var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
-var $elm$html$Html$label = _VirtualDom_node('label');
 var $elm$html$Html$p = _VirtualDom_node('p');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
 var $author$project$Valida1$viewChallenge = function (model) {
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				$elm$html$Html$Attributes$class('block la-base-modal')
+				$elm$html$Html$Attributes$class('la-base-modal')
 			]),
 		_List_fromArray(
 			[
@@ -5380,7 +5330,8 @@ var $author$project$Valida1$viewChallenge = function (model) {
 												$elm$html$Html$Attributes$class('mm-campo'),
 												$elm$html$Html$Attributes$id('valor'),
 												$elm$html$Html$Attributes$class('form-input'),
-												$elm$html$Html$Attributes$placeholder('?')
+												$elm$html$Html$Attributes$placeholder('?'),
+												$elm$html$Html$Events$onInput($author$project$Valida1$Contesto)
 											]),
 										_List_Nil),
 										A2(
@@ -5395,42 +5346,10 @@ var $author$project$Valida1$viewChallenge = function (model) {
 					]))
 			]));
 };
-var $author$project$Valida1$view = function (model) {
-	return A2(
-		$elm$html$Html$div,
-		_List_Nil,
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$input,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$type_('text'),
-						$elm$html$Html$Attributes$placeholder('Name'),
-						$elm$html$Html$Events$onInput($author$project$Valida1$NameChanged),
-						$elm$html$Html$Attributes$value(model.name)
-					]),
-				_List_Nil),
-				A2(
-				$elm$html$Html$input,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$type_('text'),
-						$elm$html$Html$Attributes$placeholder('Email'),
-						$elm$html$Html$Events$onInput($author$project$Valida1$EmailChanged),
-						$elm$html$Html$Attributes$value(model.email)
-					]),
-				_List_Nil),
-				$author$project$Valida1$viewChallenge(model)
-			]));
+var $author$project$Valida1$view = function (modelo) {
+	return modelo.probando ? $author$project$Valida1$viewChallenge(modelo) : $elm$html$Html$text('');
 };
 var $author$project$Valida1$main = $elm$browser$Browser$element(
-	{
-		init: $author$project$Valida1$init,
-		subscriptions: function (_v0) {
-			return $elm$core$Platform$Sub$none;
-		},
-		update: $author$project$Valida1$updateWithStorage,
-		view: $author$project$Valida1$view
-	});
-_Platform_export({'Valida1':{'init':$author$project$Valida1$main($elm$json$Json$Decode$value)(0)}});}(this));
+	{init: $author$project$Valida1$init, subscriptions: $author$project$Valida1$subscription, update: $author$project$Valida1$update, view: $author$project$Valida1$view});
+_Platform_export({'Valida1':{'init':$author$project$Valida1$main(
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
