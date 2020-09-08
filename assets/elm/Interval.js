@@ -5149,7 +5149,7 @@ var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Valida1$init = function (_v0) {
 	return _Utils_Tuple2(
-		{orden: '', probando: false, resultado: $author$project$Valida1$NoSe},
+		{intento: 0, orden: '', probando: false, resultado: $author$project$Valida1$NoSe},
 		$elm$core$Platform$Cmd$none);
 };
 var $author$project$Valida1$Evalua = function (a) {
@@ -5163,28 +5163,67 @@ var $author$project$Valida1$subscription = function (_v0) {
 var $author$project$Valida1$Paso = function (a) {
 	return {$: 'Paso', a: a};
 };
+var $author$project$Valida1$ResultaDelFocus = function (a) {
+	return {$: 'ResultaDelFocus', a: a};
+};
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $elm$core$Task$onError = _Scheduler_onError;
+var $elm$core$Task$attempt = F2(
+	function (resultToMessage, task) {
+		return $elm$core$Task$command(
+			$elm$core$Task$Perform(
+				A2(
+					$elm$core$Task$onError,
+					A2(
+						$elm$core$Basics$composeL,
+						A2($elm$core$Basics$composeL, $elm$core$Task$succeed, resultToMessage),
+						$elm$core$Result$Err),
+					A2(
+						$elm$core$Task$andThen,
+						A2(
+							$elm$core$Basics$composeL,
+							A2($elm$core$Basics$composeL, $elm$core$Task$succeed, resultToMessage),
+							$elm$core$Result$Ok),
+						task))));
+	});
 var $author$project$Valida1$estaBien = function (respondio) {
 	return (respondio === '4') ? true : false;
 };
+var $elm$browser$Browser$Dom$focus = _Browser_call('focus');
+var $elm$core$Basics$ge = _Utils_ge;
 var $elm$json$Json$Encode$bool = _Json_wrap;
 var $author$project$Valida1$resultoDeEvaluar = _Platform_outgoingPort('resultoDeEvaluar', $elm$json$Json$Encode$bool);
 var $author$project$Valida1$update = F2(
 	function (msg, modelo) {
-		if (msg.$ === 'Evalua') {
-			var ordena = msg.a;
-			return _Utils_Tuple2(
-				{orden: ordena, probando: true, resultado: $author$project$Valida1$NoSe},
-				$elm$core$Platform$Cmd$none);
-		} else {
-			var esto = msg.a;
-			var resultaPues = $author$project$Valida1$estaBien(esto);
-			return _Utils_Tuple2(
-				{
-					orden: modelo.orden,
-					probando: false,
-					resultado: $author$project$Valida1$Paso(resultaPues)
-				},
-				$author$project$Valida1$resultoDeEvaluar(resultaPues));
+		switch (msg.$) {
+			case 'Evalua':
+				var ordenRecibida = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						modelo,
+						{orden: ordenRecibida, probando: true}),
+					A2(
+						$elm$core$Task$attempt,
+						$author$project$Valida1$ResultaDelFocus,
+						$elm$browser$Browser$Dom$focus('valor')));
+			case 'Contesto':
+				var esto = msg.a;
+				var resultaPues = $author$project$Valida1$estaBien(esto);
+				return _Utils_Tuple2(
+					_Utils_update(
+						modelo,
+						{
+							intento: modelo.intento + 1,
+							probando: (modelo.intento >= 2) ? false : true,
+							resultado: resultaPues ? $author$project$Valida1$Paso(true) : ((modelo.intento >= 2) ? $author$project$Valida1$Paso(false) : $author$project$Valida1$NoSe)
+						}),
+					(modelo.intento >= 2) ? $author$project$Valida1$resultoDeEvaluar(resultaPues) : $elm$core$Platform$Cmd$none);
+			default:
+				return _Utils_Tuple2(modelo, $elm$core$Platform$Cmd$none);
 		}
 	});
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
@@ -5341,7 +5380,18 @@ var $author$project$Valida1$viewChallenge = function (model) {
 											[
 												$elm$html$Html$text('= 11')
 											]))
-									]))
+									])),
+								(model.intento >= 1) ? A2(
+								$elm$html$Html$p,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class(
+										'text-right mx-4 ' + ((model.intento === 1) ? 'text-black' : 'text-red-500'))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Again please!')
+									])) : A2($elm$html$Html$p, _List_Nil, _List_Nil)
 							]))
 					]))
 			]));

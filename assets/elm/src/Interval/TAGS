@@ -1,20 +1,21 @@
 
-Valida1.elm,434
-main =main14,199
-type EstadoEstado27,359
-    = NoSeNoSe28,371
-    | PasoPaso29,382
-type alias Model =type32,400
-type alias ModelModel32,400
-type MsgMsg39,495
-    = EvaluaEvalua40,504
-    | ContestoContesto41,524
-init _ =init45,580
-update msg modelo =update59,746
-estaBien respondio =estaBien83,1293
-viewChallenge model =viewChallenge96,1427
-view modelo =view130,2608
-subscription _ =subscription153,2866
+Valida1.elm,481
+main =main16,237
+type EstadoEstado29,397
+    = NoSeNoSe30,409
+    | PasoPaso31,420
+type alias Model =type34,438
+type alias ModelModel34,438
+type MsgMsg42,553
+    = EvaluaEvalua43,562
+    | ContestoContesto44,582
+    | ResultaDelFocusResultaDelFocus45,604
+init _ =init49,682
+update msg modelo =update64,868
+estaBien respondio =estaBien106,1934
+viewChallenge model =viewChallenge119,2068
+view modelo =view169,3803
+subscription _ =subscription192,4061
 
 elm-crypto-string/example/Main.elm,571
 module MainMain13,366

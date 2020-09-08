@@ -1,9 +1,11 @@
 port module Valida1 exposing (..)
 
 import Browser
+import Browser.Dom as Dom
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
+import Task
 
 
 
@@ -33,12 +35,14 @@ type alias Model =
     { probando : Bool
     , resultado : Estado
     , orden : String
+    , intento : Int
     }
 
 
 type Msg
     = Evalua String
     | Contesto String
+    | ResultaDelFocus (Result Dom.Error ())
 
 
 init : () -> ( Model, Cmd Msg )
@@ -46,6 +50,7 @@ init _ =
     ( { probando = False
       , resultado = NoSe
       , orden = ""
+      , intento = 0
       }
     , Cmd.none
     )
@@ -58,12 +63,9 @@ init _ =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg modelo =
     case msg of
-        Evalua ordena ->
-            ( { probando = True
-              , resultado = NoSe
-              , orden = ordena
-              }
-            , Cmd.none
+        Evalua ordenRecibida ->
+            ( { modelo | probando = True, orden = ordenRecibida }
+            , Dom.focus "valor" |> Task.attempt ResultaDelFocus
             )
 
         Contesto esto ->
@@ -71,12 +73,33 @@ update msg modelo =
                 resultaPues =
                     estaBien esto
             in
-            ( { probando = False
-              , resultado = Paso resultaPues
-              , orden = modelo.orden
+            ( { modelo
+                | probando =
+                    if modelo.intento >= 2 then
+                        False
+
+                    else
+                        True
+                , resultado =
+                    if resultaPues then
+                        Paso True
+
+                    else if modelo.intento >= 2 then
+                        Paso False
+
+                    else
+                        NoSe
+                , intento = modelo.intento + 1
               }
-            , resultoDeEvaluar resultaPues
+            , if modelo.intento >= 2 then
+                resultoDeEvaluar resultaPues
+
+              else
+                Cmd.none
             )
+
+        ResultaDelFocus _ ->
+            ( modelo, Cmd.none )
 
 
 estaBien : String -> Bool
@@ -121,6 +144,22 @@ viewChallenge model =
                     , p []
                         [ text "= 11" ]
                     ]
+                , if model.intento >= 1 then
+                    p
+                        [ class
+                            ("text-right mx-4 "
+                                ++ (if model.intento == 1 then
+                                        "text-black"
+
+                                    else
+                                        "text-red-500"
+                                   )
+                            )
+                        ]
+                        [ text "Again please!" ]
+
+                  else
+                    p [] []
                 ]
             ]
         ]
