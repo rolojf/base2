@@ -34,7 +34,7 @@
     line-height: 0;
     position: relative;
     vertical-align: baseline;
-	 @apply text-xs;
+    @apply text-xs;
   }
 
   sup {
@@ -197,7 +197,7 @@
   
     &:last-of-type {
       border-bottom: 2px solid #aaa;
-		@apply pb-3;
+      @apply pb-3;
     }
   
     + dt {
@@ -244,8 +244,8 @@
     column-rule: 1px dotted #000;
     column-gap: 3em;
     .junto {
-  		h3, h4, h5, p {
-  			 margin-top: 0;}
+        h3, h4, h5, p {
+            margin-top: 0;}
     }
   }
   
@@ -274,7 +274,7 @@
     border-spacing: 3px 2px;
     background-color: #fff;
     padding: 7px;
-	 @apply font-mono text-base;
+    @apply font-mono text-base;
 
     tr {
       td,
@@ -298,49 +298,49 @@
     text-align: right;
     }
     td:nth-last-child(1)::before {
-  		content: "$";
-  		float: left;
-  		padding-right: 7px;
+        content: "$";
+        float: left;
+        padding-right: 7px;
     }
   }
   .moneda-2 tr {
     td:nth-last-child(2) {
-  		text-align: right;
+        text-align: right;
     }
     td:nth-last-child(2)::before {
-  		content: "$";
-  		float: left;
-  		padding-right: 7px;
+        content: "$";
+        float: left;
+        padding-right: 7px;
     }
   }
   .moneda-3 tr {
     td:nth-last-child(3) {
-  		text-align: right;
+        text-align: right;
     }
     td:nth-last-child(3)::before {
-  		content: "$";
-  		float: left;
-  		padding-right: 7px;
+        content: "$";
+        float: left;
+        padding-right: 7px;
     }
   }
    .moneda-4 tr {
-  	  td:nth-last-child(4) {
-  			text-align: right;
-  	  }
-  	  td:nth-last-child(4)::before {
-  			content: "$";
-  			float: left;
-  			padding-right: 7px;
-  	  }
+       td:nth-last-child(4) {
+           text-align: right;
+       }
+       td:nth-last-child(4)::before {
+           content: "$";
+           float: left;
+           padding-right: 7px;
+       }
    }
    .moneda-5 tr {
-  	  td:nth-last-child(5) {
-  			text-align: right;
-  	  }
-  	  td:nth-last-child(5)::before {
-  			content: "$";
-  			float: left;
-  			padding-right: 7px;
-  	  }
+       td:nth-last-child(5) {
+           text-align: right;
+       }
+       td:nth-last-child(5)::before {
+           content: "$";
+           float: left;
+           padding-right: 7px;
+     }
    }
 }

@@ -44,3 +44,4 @@ resources/_gen/*
 /assets/js/
 /TAGS
 *.html#
+/pre-delete/
