@@ -46,17 +46,16 @@
 }
 
 .mm-campo {
-  @apply mx-2 w-5;
-  @apply rounded-md shadow-sm; 
+  @apply mx-2 w-5 rounded-md shadow-sm text-center;
 }
 
 .mm-apparel-campo {
-  @apply block w-full;
+  @apply block w-full; 
 }
 
 @screen sm {
   .mm-campo {
-    @apply leading-5 text-sm;
+    @apply leading-5 text-sm w-6 h-6;
   }
 
 }
@@ -74,3 +73,5 @@
 .mi-menu-boton{
    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white;
 }
+
+[x-cloak] { display: none; }

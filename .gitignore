@@ -45,3 +45,4 @@ resources/_gen/*
 /TAGS
 *.html#
 /pre-delete/
+assets/elm/*.js

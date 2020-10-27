@@ -69,7 +69,11 @@ Adicionalmente se puede poner datos extras programando en config.toml así:
     weight = -110
 #+end_src
 
-* Javascript y Elm
+* Elm
+** Asegurar compilación 
+Validar que en root del proyecto está el archivo ejecutable ~build-elm.sh~
+Y que el packaje.json hace referencia a este archivo para compilar elm en dado caso.
+
 ** Compilación e Inclusión
 Se compila y se incluye automaticamente con los comandos/scripts de package.json
 ** Definir cual aplicación corresponde en cada página

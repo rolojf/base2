@@ -1,7 +1,6 @@
 #+hugo_base_dir: ../
 #+hugo_section: /
 #+hugo_level_offset: 1
-#+hugo_custom_front_matter: :elm Interval
 * Título de headline en orgmode home                         :unoTag:@unoCat:
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index

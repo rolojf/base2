@@ -1,30 +1,52 @@
-<div class="bg-gray-200 md:max-w-md w-full shadow sm:rounded-lg">
-   <div class="px-4 py-5 sm:p-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
+<div class="la-base-modal"
+     x-show.transition="retar"
+     x-cloak
+     >
+   <div class="mm-fondo"
+        >
+      <h3 class="mm-titulo">
          {{ T "conf_title" }}
       </h3>
-      <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
-         <p>
-            {{ T "permit_conf" }}
+      <p class="mm-explic">
+         {{ T "permit_conf" }}
+      </p>
+      <div class="mm-fondo-reto">
+         <p class="mm-reto"
+            x-on:keydown.escape.window="resetVal"
+         > {{ T "ask_add" }}
          </p>
-      </div>
-      <div class="mt-5 flex flex-col md:flex-row md:items-center">
-         <p class="text-sm">
-            {{ T "ask_add" }}
-         </p>
-         <div id="ecuacion" class="flex items-center">
-            <p class="ml-2 text-base">
-               7 +
-            </p>
-            <div class="ml-2 w-10">
-               <label for="valor" class="sr-only">{{ T "val_conf" }}</label>
-               <div class="relative rounded-md shadow-sm">
-                  <input id="valor" class="form-input block w-full sm:text-sm sm:leading-5" placeholder="?" />
-               </div>
-            </div>
-            <p class="ml-2 text-base">
-               = 11
-            </p>
+         <div class="mm-acomodo-ecuacion">
+            <p id="ecuacion"
+               class="flex items-center"
+            >
+               <p>
+                  7 +
+               </p>
+               <label for="valor"
+                      class="sr-only"
+               >
+                  {{ T "val_conf" }}
+               </label>
+               <input id="valor"
+                      type="tel"
+                      class="mm-campo"
+                      placeholder="?"
+                      x-model="queContesta"
+                      x-on:input="checaResp"
+                      x-ref="retoResp"
+                      >
+               <p>= 11</p>
+         </div>
+         <div class="mt-3 pl-6">
+            <h3 :class="avisoClase1">
+               {{ T "aviso_falla_1" }}
+            </h3>
+            <h3 :class="avisoClase2">
+               {{ T "aviso_falla_2" }}
+            </h3>
+            <h3 :class="avisoClase3">
+               {{ T "aviso_falla_3" }}
+            </h3>
          </div>
       </div>
    </div>

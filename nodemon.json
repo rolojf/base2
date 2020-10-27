@@ -1,7 +1,8 @@
 {
   "verbose": true,
   "watch": [
-    "assets/elm/src/"
+    "assets/elm/src/",
+    "themes/rolo-base/assets/elm/src/"
   ],
   "env": {
     "NODE_ENV": "development"

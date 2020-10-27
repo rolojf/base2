@@ -17,20 +17,22 @@
 {{ end }}
 
 {{/* Elm Call */}}
-{{ $js := $.Param "elm" }}
-{{ if ne $js "noelm" }}
-   {{ $jsNombre := printf "js/%s.js" $js }}
-   {{ $jsFile := resources.Get $jsNombre }}
+{{ $jselm := $.Param "elm" }}
+{{ printf "<!-- Este es lo elm a inlcuir del tscripts.html = %s -->" $jselm | safeHTML }}
+{{ if ne $jselm "noelm" }}
    {{ if hugo.IsProduction }}
-      {{ $jsFile = $jsFile | resources.Minify | resources.Fingerprint "md5"}}
+      {{ $jsNombre := printf "js/%s.js" $jselm | }}
+      {{ $jsFileDeElm = resources.Get $jsNombre | resources.Minify | resources.Fingerprint }}
       <script type="text/javascript"
-              src="{{ $jsFile.RelPermalink }}"
-              integrity="{{ $jsFile.Data.Integrity }}"
+              src="{{ $jsFileDeElm.RelPermalink }}"
+              integrity="{{ $jsFileDeElm.Data.Integrity }}"
               crossorigin="anonymous">
       </script>
    {{ else }}
+      {{ $jsNombre := printf "js/%s.js" $jselm }}
+      {{ $jsFileDeElm := resources.Get $jsNombre }}
       <script type="text/javascript"
-              src="{{ $jsFile.RelPermalink }}">
+              src="{{ $jsFileDeElm.RelPermalink }}">
       </script>
    {{ end }}
 {{ end }}

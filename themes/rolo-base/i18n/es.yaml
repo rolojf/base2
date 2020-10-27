@@ -105,6 +105,7 @@
 - id: cta_email
   translation: "Escriba su correo electrónico"
 
+# chequeo - reto
 - id: conf_title
   translation: "Validación Rápida"
 
@@ -116,3 +117,47 @@
 
 - id: val_conf
   translation: "número"
+
+- id: aviso_falla_1
+  translation: "Intenta Nuevamente por favor."
+
+- id: aviso_falla_2
+  translation: "Error. Intente de nuevo por favor."
+
+- id: aviso_falla_3
+  translation: "Ultimo Intento. Escriba solo un dígito"
+
+# formulario
+- id: forma_comunica
+  translation: "¡Comunícate con nosotros!"
+
+- id: forma_invite
+  translation: "Agradecemos de antemano cualquier comentario, opinión, duda o lo que sea que quiera decirnos."
+
+- id: forma_prim_nombre
+  translation: "Nombre"
+
+- id: forma_last_name
+  translation: "Apellido(s)"
+
+- id: forma_email
+  translation: "Correo electrónico"
+
+- id: forma_tel
+  translation: "Teléfono o WhatsApp"
+
+- id: forma_comment
+  translation: "Comentario, Duda u Opinión"
+
+- id: forma_donde
+  translation: "¿Cómo supo de nosotros?"
+
+- id: forma_enviar
+  translation: "Enviar"
+
+- id: forma_opcional
+  translation: "Opcional"
+
+- id: forma_minChar
+  translation: "Max. 500 letras"
+

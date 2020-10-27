@@ -108,6 +108,7 @@
 - id: cta_email
   translation: "Enter your email"
 
+# chequeo - reto
 - id: conf_title
   translation: "Quick Validation"
 
@@ -119,3 +120,48 @@
 
 - id: val_conf
   translation: "number"
+
+- id: aviso_falla_1
+  translation: "Try Again Please."
+
+- id: aviso_falla_2
+  translation: "Wrong Input. Try Again."
+
+- id: aviso_falla_3
+  translation: "Last try. Just type one digit."
+
+# formulario
+- id: forma_comunica
+  translation: "Contact us!"
+
+- id: forma_invite
+  translation: "We'll appreciate any comment, question, or whatever you want to say to us!."
+
+
+- id: forma_prim_nombre
+  translation: "First Name"
+
+- id: forma_last_name
+  translation: "Last Name"
+
+- id: forma_email
+  translation: "Email"
+
+- id: forma_tel
+  translation: "Phone"
+
+- id: forma_comment
+  translation: "Comment, message or question"
+
+- id: forma_donde
+  translation: "How did you hear about us?"
+
+- id: forma_enviar
+  translation: "Submit"
+
+- id: forma_opcional
+  translation: "Optional"
+
+- id: forma_minChar
+  translation: "Max. 500 characters"
+

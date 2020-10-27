@@ -11,7 +11,7 @@
     "dev:hugo": "NODE_ENV=development hugo server --disableFastRender --navigateToChanged",
     "dev:elm": "nodemon --exec ./build-elm.sh",
     "prod": "run-s deploy:assets build:hugo",
-    "deploy:assets": "echo \"manualmente assets/elm/build-elm.sh --optimize\"",
+    "deploy:assets": "./build-elm-optimiza.sh && ./optim-elm.sh",
     "build:hugo": "NODE_ENV=production hugo --gc --minify"
   },
   "devDependencies": {
@@ -27,6 +27,6 @@
     "postcss-custom-properties": "^10.0.0",
     "postcss-nested": "^5.0.1",
     "purgecss": "^3.0.0",
-    "tailwindcss": "^1.9.5"
+    "tailwindcss": "^1.9.6"
   }
 }
